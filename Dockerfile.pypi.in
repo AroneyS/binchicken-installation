@@ -1,37 +1,47 @@
 FROM ubuntu:22.04
 
-# install miniconda
+# Install miniconda
 RUN apt-get update \
     && apt-get install -y build-essential \
     && apt-get install -y wget \
-    && apt-install -y git
+    && apt-get install -y git
     # && apt-get clean \
     # && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get install -y python3-pip
-
-RUN pip install binchicken==BINCHICKEN_VERSION
-
 # Install non-python dependencies of Bin Chicken via conda
-ENV CONDA_DIR /opt/conda
+ENV CONDA_DIR=/opt/conda
 RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
-    /bin/bash ~/miniconda.sh -b -p /opt/conda
+    /bin/bash ~/miniconda.sh -b -p $CONDA_DIR
 
 # Put conda in path so we can use conda activate
 ENV PATH=$CONDA_DIR/bin:$PATH
-
-# install non-python binchicken dependencies for pipe mode
 RUN conda create -y -c bioconda -c conda-forge -n binchicken \
+    python=3.10.* \
+    pip \
     pigz \
     parallel \
     sourmash \
     sourmash_plugin_branchwater
 
+    # Install Bin Chicken
+RUN conda run -n binchicken \
+    pip install binchicken==BINCHICKEN_VERSION
+
 # Download some example data so we can test the installation
 RUN git clone https://github.com/AroneyS/binchicken bc
 
-# activate the binchicken environment
-RUN echo "source activate binchicken" > ~/.bashrc
+# Build the subprocess conda environments
+RUN conda run -n binchicken \
+    binchicken build --conda-prefix .conda
 
 # Run coassemble
-RUN binchicken coassemble --forward bc/test/data/sample_1.1.fq bc/test/data/sample_2.1.fq bc/test/data/sample_3.1.fq --reverse bc/test/data/sample_1.2.fq bc/test/data/sample_2.2.fq bc/test/data/sample_3.2.fq --genomes bc/test/data/GB_GCA_013286235.1.fna --singlem-metapackage bc/test/data/singlem_metapackage.smpkg --assemble-unmapped --unmapping-max-identity 99 --unmapping-max-alignment 90 --prodigal-meta --output test_pypi
+RUN conda run -n binchicken \
+    binchicken coassemble \
+    --forward bc/test/data/sample_1.1.fq bc/test/data/sample_2.1.fq bc/test/data/sample_3.1.fq \
+    --reverse bc/test/data/sample_1.2.fq bc/test/data/sample_2.2.fq bc/test/data/sample_3.2.fq \
+    --genomes bc/test/data/GB_GCA_013286235.1.fna \
+    --singlem-metapackage bc/test/data/singlem_metapackage.smpkg \
+    --assemble-unmapped --unmapping-max-identity 99 --unmapping-max-alignment 90 \
+    --prodigal-meta --output test_pypi
+
+RUN cat test_pypi/coassemble/target/elusive_clusters.tsv
