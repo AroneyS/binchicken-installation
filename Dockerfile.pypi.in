@@ -36,6 +36,7 @@ cd ..
 # Build the subprocess conda environments
 RUN conda run -n binchicken \
     binchicken build --conda-prefix .conda \
+    --checkm2-db /binchicken/CheckM2_database \
     --singlem-metapackage /binchicken/singlem_metapackage \
     --download-databases
 

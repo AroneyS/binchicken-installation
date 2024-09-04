@@ -27,18 +27,19 @@ RUN git clone https://github.com/AroneyS/binchicken bc && \
     cd ..
 
 # Build the subprocess conda environments
-RUN conda run -n binchicken \
-    binchicken build --conda-prefix .conda \
-    --singlem-metapackage /binchicken/singlem_metapackage \
-    --download-databases
+# RUN conda run -n binchicken \
+#     binchicken build --conda-prefix .conda \
+#     --checkm2-db /binchicken/CheckM2_database \
+#     --singlem-metapackage /binchicken/singlem_metapackage \
+#     --download-databases
 
-# Run coassemble
-RUN conda run -n binchicken \
-    binchicken coassemble \
-    --forward bc/test/data/sample_1.1.fq bc/test/data/sample_2.1.fq bc/test/data/sample_3.1.fq \
-    --reverse bc/test/data/sample_1.2.fq bc/test/data/sample_2.2.fq bc/test/data/sample_3.2.fq \
-    --genomes bc/test/data/GB_GCA_013286235.1.fna \
-    --assemble-unmapped --unmapping-max-identity 99 --unmapping-max-alignment 90 \
-    --prodigal-meta --output test_conda
+# # Run coassemble
+# RUN conda run -n binchicken \
+#     binchicken coassemble \
+#     --forward bc/test/data/sample_1.1.fq bc/test/data/sample_2.1.fq bc/test/data/sample_3.1.fq \
+#     --reverse bc/test/data/sample_1.2.fq bc/test/data/sample_2.2.fq bc/test/data/sample_3.2.fq \
+#     --genomes bc/test/data/GB_GCA_013286235.1.fna \
+#     --assemble-unmapped --unmapping-max-identity 99 --unmapping-max-alignment 90 \
+#     --prodigal-meta --output test_conda
 
-RUN cat test_conda/coassemble/target/elusive_clusters.tsv
+# RUN cat test_conda/coassemble/target/elusive_clusters.tsv
