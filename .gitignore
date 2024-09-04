@@ -1,3 +1,6 @@
 Dockerfile.conda
 Dockerfile.pypi
 binchicken_*sif
+bc/**
+test_docker/**
+test_singularity/**

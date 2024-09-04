@@ -21,11 +21,16 @@ RUN conda init bash && . ~/.bashrc
 RUN conda create -y -n binchicken -c bioconda -c conda-forge binchicken'>='BINCHICKEN_VERSION
 
 # Download some example data so we can test the installation
-RUN git clone https://github.com/AroneyS/binchicken bc
+RUN git clone https://github.com/AroneyS/binchicken bc && \
+    cd bc && \
+    git checkout vBINCHICKEN_VERSION && \
+    cd ..
 
 # Build the subprocess conda environments
 RUN conda run -n binchicken \
-    binchicken build --conda-prefix .conda
+    binchicken build --conda-prefix .conda \
+    --singlem-metapackage /binchicken/singlem_metapackage \
+    --download-databases
 
 # Run coassemble
 RUN conda run -n binchicken \
@@ -33,7 +38,6 @@ RUN conda run -n binchicken \
     --forward bc/test/data/sample_1.1.fq bc/test/data/sample_2.1.fq bc/test/data/sample_3.1.fq \
     --reverse bc/test/data/sample_1.2.fq bc/test/data/sample_2.2.fq bc/test/data/sample_3.2.fq \
     --genomes bc/test/data/GB_GCA_013286235.1.fna \
-    --singlem-metapackage bc/test/data/singlem_metapackage.smpkg \
     --assemble-unmapped --unmapping-max-identity 99 --unmapping-max-alignment 90 \
     --prodigal-meta --output test_conda
 
