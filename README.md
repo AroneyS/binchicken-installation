@@ -1,6 +1,6 @@
 This repository serves as a fully worked (containerised) example for the installation of the [Bin Chicken software package](https://aroneys.github.io/binchicken/) on a Linux system.
 
-If you are simply attempting to install Bin Chicken on your own system, you should follow the instructions on the [Bin Chicken website](https://aroneys.github.io/binchicken/). Instructions there include for installing Bin Chicken via dockerhub, which produces an optimised (and pre-built) image. Use that one if the intention is to use Bin Chicken on your data.
+If you are simply attempting to install Bin Chicken on your own system, you should follow the instructions on the [Bin Chicken website](https://aroneys.github.io/binchicken/). 
 
 The repository here is simply intended to show installation in a containerised environment free from the Bin Chicken authors' specific computing environment.
 
