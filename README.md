@@ -1,3 +1,5 @@
+# Bin Chicken Installation
+
 This repository serves as a fully worked (containerised) example for the installation of the [Bin Chicken software package](https://aroneys.github.io/binchicken/) on a Linux system.
 
 If you are simply attempting to install Bin Chicken on your own system, you should follow the instructions on the [Bin Chicken website](https://aroneys.github.io/binchicken/). 
@@ -13,3 +15,15 @@ bash compile_and_test_install_methods.bash RELEASE_VERSION
 ```
 
 The `*.build.log` files created using this process is available in this repository.
+
+## Errors
+
+ERROR: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+
+```bash
+# WSL
+sudo service docker start
+
+# Linux
+sudo systemctl start docker
+```
