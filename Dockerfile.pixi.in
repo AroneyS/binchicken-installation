@@ -1,24 +1,13 @@
-FROM ubuntu:22.04
-
-# Install miniconda
-RUN apt-get update \
-    && apt-get install -y build-essential \
-    && apt-get install -y wget \
-    && apt-get install -y git \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-
-ENV CONDA_DIR=/opt/conda
-RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
-    /bin/bash ~/miniconda.sh -b -p $CONDA_DIR
-
-# Put conda in path so we can use conda activate
-ENV PATH=$CONDA_DIR/bin:$PATH
+FROM ghcr.io/prefix-dev/pixi:0.47.0
 
 # Install binchicken and dependencies
+RUN mkdir /app
+COPY pixi.toml /app
+WORKDIR /app
+
 SHELL ["/bin/bash", "--login", "-c"]
-RUN conda init bash && . ~/.bashrc
-RUN conda create -y -n binchicken -c bioconda -c conda-forge --override-channels binchicken'=='BINCHICKEN_VERSION
+RUN pixi install
+RUN pixi global install git
 
 # Download some example data so we can test the installation
 RUN git clone https://github.com/AroneyS/binchicken bc && \
@@ -31,19 +20,19 @@ RUN mkdir -p /binchicken/CheckM2_database
 RUN touch /binchicken/CheckM2_database/db
 
 # Build the subprocess environments
-RUN conda run -n binchicken \
+RUN pixi run \
     binchicken build \
     --checkm2-db /binchicken/CheckM2_database \
     --singlem-metapackage /binchicken/singlem_metapackage \
     --download-databases
 
 # Run coassemble
-RUN conda run -n binchicken \
+RUN pixi run \
     binchicken coassemble \
     --forward bc/test/data/sample_1.1.fq bc/test/data/sample_2.1.fq bc/test/data/sample_3.1.fq \
     --reverse bc/test/data/sample_1.2.fq bc/test/data/sample_2.2.fq bc/test/data/sample_3.2.fq \
     --genomes bc/test/data/GB_GCA_013286235.1.fna \
     --assemble-unmapped --unmapping-max-identity 99 --unmapping-max-alignment 90 \
-    --prodigal-meta --output test_conda
+    --prodigal-meta --output test_pixi
 
-RUN cat test_conda/coassemble/target/elusive_clusters.tsv
+RUN cat test_pixi/coassemble/target/elusive_clusters.tsv

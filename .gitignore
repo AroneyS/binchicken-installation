@@ -1,3 +1,6 @@
+Dockerfile.pixi
+pixi.toml
+pixi.lock
 Dockerfile.conda
 Dockerfile.pypi
 binchicken_*sif

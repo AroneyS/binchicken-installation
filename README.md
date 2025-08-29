@@ -27,3 +27,20 @@ sudo service docker start
 # Linux
 sudo systemctl start docker
 ```
+
+General docker container debugging.
+
+```bash
+# Generate image up to problematic section.
+# Get image id
+docker images
+# Start interactive docker container
+docker run -it --entrypoint /bin/bash <image_id>
+```
+
+Cleanup temporary files.
+
+```bash
+# Cleanup docker
+docker system prune -a
+```

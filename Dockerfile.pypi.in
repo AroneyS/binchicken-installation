@@ -15,13 +15,11 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86
 
 # Put conda in path so we can use conda activate
 ENV PATH=$CONDA_DIR/bin:$PATH
-RUN conda create -y -c bioconda -c conda-forge -n binchicken \
-    python=3.10.* \
-    pip \
-    pigz \
-    parallel \
-    sourmash \
-    sourmash_plugin_branchwater
+RUN mkdir /app
+COPY bc/binchicken.yml /app
+RUN conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
+RUN conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
+RUN conda env create -y -f /app/binchicken.yml -n binchicken
 
     # Install Bin Chicken
 RUN conda run -n binchicken \
@@ -33,9 +31,13 @@ cd bc && \
 git checkout vBINCHICKEN_VERSION && \
 cd ..
 
+# Dummy checkm2 dir
+RUN mkdir -p /binchicken/CheckM2_database
+RUN touch /binchicken/CheckM2_database/db
+
 # Build the subprocess conda environments
 RUN conda run -n binchicken \
-    binchicken build --conda-prefix .conda \
+    binchicken build \
     --checkm2-db /binchicken/CheckM2_database \
     --singlem-metapackage /binchicken/singlem_metapackage \
     --download-databases
