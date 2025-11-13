@@ -8,6 +8,7 @@ WORKDIR /app
 SHELL ["/bin/bash", "--login", "-c"]
 RUN pixi install
 RUN pixi global install git
+RUN pixi global install wget
 
 # Download some example data so we can test the installation
 RUN git clone https://github.com/AroneyS/binchicken bc && \
@@ -15,9 +16,11 @@ RUN git clone https://github.com/AroneyS/binchicken bc && \
     git checkout vBINCHICKEN_VERSION && \
     cd ..
 
-# Dummy checkm2 dir
+# Download checkm2 database manually
 RUN mkdir -p /binchicken/CheckM2_database
-RUN touch /binchicken/CheckM2_database/db
+RUN wget https://zenodo.org/api/records/14897628/files/checkm2_database.tar.gz/content -O /binchicken/checkm2_database.tar.gz && \
+    tar -xvzf /binchicken/checkm2_database.tar.gz -C /binchicken/ && \
+    rm /binchicken/checkm2_database.tar.gz
 
 # Build the subprocess environments
 RUN pixi run \
