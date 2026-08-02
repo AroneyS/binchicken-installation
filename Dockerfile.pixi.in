@@ -16,12 +16,6 @@ RUN git clone https://github.com/AroneyS/binchicken bc && \
     git checkout vBINCHICKEN_VERSION && \
     cd ..
 
-# Download checkm2 database manually
-RUN mkdir -p /binchicken/CheckM2_database
-RUN wget https://zenodo.org/api/records/14897628/files/checkm2_database.tar.gz/content -O /binchicken/checkm2_database.tar.gz && \
-    tar -xvzf /binchicken/checkm2_database.tar.gz -C /binchicken/ && \
-    rm /binchicken/checkm2_database.tar.gz
-
 # Build the subprocess environments
 RUN pixi run \
     binchicken build \

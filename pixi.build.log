@@ -1,846 +1,795 @@
 #0 building with "default" instance using docker driver
 
 #1 [internal] load build definition from Dockerfile.pixi
-#1 transferring dockerfile: 1.48kB done
+#1 transferring dockerfile: 1.15kB done
 #1 DONE 0.0s
 
 #2 [internal] load metadata for ghcr.io/prefix-dev/pixi:0.47.0
-#2 DONE 0.9s
+#2 DONE 0.6s
 
 #3 [internal] load .dockerignore
 #3 transferring context: 2B done
 #3 DONE 0.0s
 
-#4 [ 1/13] FROM ghcr.io/prefix-dev/pixi:0.47.0@sha256:f9f4331c11fe8ecec4b0bda19c3863af1f372dc988b024ddec1a512f4f6b0068
+#4 [ 1/11] FROM ghcr.io/prefix-dev/pixi:0.47.0@sha256:f9f4331c11fe8ecec4b0bda19c3863af1f372dc988b024ddec1a512f4f6b0068
+#4 resolve ghcr.io/prefix-dev/pixi:0.47.0@sha256:f9f4331c11fe8ecec4b0bda19c3863af1f372dc988b024ddec1a512f4f6b0068 0.0s done
 #4 CACHED
 
 #5 [internal] load build context
 #5 transferring context: 174B done
 #5 DONE 0.0s
 
-#6 [ 2/13] RUN mkdir /app
-#6 DONE 0.7s
+#6 [ 2/11] RUN mkdir /app
+#6 DONE 0.3s
 
-#7 [ 3/13] COPY pixi.toml /app
-#7 DONE 0.2s
+#7 [ 3/11] COPY pixi.toml /app
+#7 DONE 0.1s
 
-#8 [ 4/13] WORKDIR /app
+#8 [ 4/11] WORKDIR /app
 #8 DONE 0.1s
 
-#9 [ 5/13] RUN pixi install
-#9 30.68 The default environment has been installed.
-#9 DONE 32.1s
+#9 [ 5/11] RUN pixi install
+#9 9.216 The default environment has been installed.
+#9 DONE 11.3s
 
-#10 [ 6/13] RUN pixi global install git
-#10 27.26 Global environments as specified in '/root/.pixi/manifests/pixi-global.toml'
-#10 27.26 └── git: 2.51.2 (installed)
-#10 27.26     └─ exposes: git, git-cvsserver, git-receive-pack, git-shell, git-upload-archive, git-upload-pack, gitk, scalar
-#10 DONE 27.4s
+#10 [ 6/11] RUN pixi global install git
+#10 12.68 Global environments as specified in '/root/.pixi/manifests/pixi-global.toml'
+#10 12.68 └── git: 2.55.0 (installed)
+#10 12.68     └─ exposes: git, git-cvsserver, git-receive-pack, git-shell, git-upload-archive, git-upload-pack, gitk, scalar
+#10 DONE 13.0s
 
-#11 [ 7/13] RUN pixi global install wget
-#11 2.752 Global environments as specified in '/root/.pixi/manifests/pixi-global.toml'
-#11 2.752 └── wget: 1.25.0 (installed)
-#11 2.752     └─ exposes: wget
-#11 DONE 2.9s
+#11 [ 7/11] RUN pixi global install wget
+#11 1.977 Global environments as specified in '/root/.pixi/manifests/pixi-global.toml'
+#11 1.977 └── wget: 1.25.0 (installed)
+#11 1.977     └─ exposes: wget
+#11 DONE 2.7s
 
-#12 [ 8/13] RUN git clone https://github.com/AroneyS/binchicken bc &&     cd bc &&     git checkout v0.13.5 &&     cd ..
-#12 0.394 Cloning into 'bc'...
-#12 4.809 Note: switching to 'v0.13.5'.
-#12 4.809 
-#12 4.809 You are in 'detached HEAD' state. You can look around, make experimental
-#12 4.809 changes and commit them, and you can discard any commits you make in this
-#12 4.809 state without impacting any branches by switching back to a branch.
-#12 4.809 
-#12 4.809 If you want to create a new branch to retain commits you create, you may
-#12 4.809 do so (now or later) by using -c with the switch command. Example:
-#12 4.809 
-#12 4.809   git switch -c <new-branch-name>
-#12 4.809 
-#12 4.809 Or undo this operation with:
-#12 4.809 
-#12 4.809   git switch -
-#12 4.809 
-#12 4.809 Turn off this advice by setting config variable advice.detachedHead to false
-#12 4.809 
-#12 4.809 HEAD is now at bc3c3cf bump version to v0.13.5
-#12 DONE 5.1s
+#12 [ 8/11] RUN git clone https://github.com/AroneyS/binchicken bc &&     cd bc &&     git checkout v0.14.1 &&     cd ..
+#12 0.341 Cloning into 'bc'...
+#12 3.994 Note: switching to 'v0.14.1'.
+#12 3.994 
+#12 3.994 You are in 'detached HEAD' state. You can look around, make experimental
+#12 3.994 changes and commit them, and you can discard any commits you make in this
+#12 3.994 state without impacting any branches by switching back to a branch.
+#12 3.994 
+#12 3.994 If you want to create a new branch to retain commits you create, you may
+#12 3.994 do so (now or later) by using -c with the switch command. Example:
+#12 3.994 
+#12 3.994   git switch -c <new-branch-name>
+#12 3.994 
+#12 3.994 Or undo this operation with:
+#12 3.994 
+#12 3.994   git switch -
+#12 3.994 
+#12 3.994 Turn off this advice by setting config variable advice.detachedHead to false
+#12 3.994 
+#12 3.994 HEAD is now at 6c0379f Release v0.14.1
+#12 DONE 4.2s
 
-#13 [ 9/13] RUN mkdir -p /binchicken/CheckM2_database
-#13 DONE 0.4s
+#13 [ 9/11] RUN pixi run     binchicken build     --checkm2-db /binchicken/CheckM2_database     --singlem-metapackage /binchicken/singlem_metapackage     --download-databases
+#13 1.101 2026/07/30 01:44:16 AM INFO: Bin Chicken v0.14.1
+#13 1.101 2026/07/30 01:44:16 AM INFO: Command: binchicken build --checkm2-db /binchicken/CheckM2_database --singlem-metapackage /binchicken/singlem_metapackage --download-databases
+#13 20.43 2026/07/30 01:44:35 AM WARNING: Environment variable TMPDIR was not set in the outer environment. This may need to be set manually.
+#13 21.03 2026/07/30 01:44:35 AM WARNING: Environment variable SINGLEM_METAPACKAGE_PATH was not set in the outer environment. This may need to be set manually.
+#13 21.65 2026/07/30 01:44:36 AM WARNING: Environment variable CHECKM2DB was not set in the outer environment. This may need to be set manually.
+#13 22.27 2026/07/30 01:44:37 AM WARNING: Environment variable METABULI_DB_PATH was not set in the outer environment. This may need to be set manually.
+#13 22.27 2026/07/30 01:44:37 AM INFO: Downloading databases
+#13 22.38 2026/07/30 01:44:37 AM INFO: Executing: snakemake --snakefile /app/.pixi/envs/default/lib/python3.11/site-packages/binchicken/workflow/download.smk --configfile '/app/build/download_config.yaml' --directory /app/build/download --cores 1 --rerun-triggers mtime --rerun-incomplete --keep-going --nolock   --local-cores 1 --retries 3  
+#13 23.67 Assuming unrestricted shared filesystem usage.
+#13 23.69 
+#13 23.69 SNAKEMAKE
+#13 23.69 =========
+#13 23.69   Date: 2026-07-30 01:44:38
+#13 23.69   Workflow ID: 3ba76c48-c411-464b-8ba5-40cabf848a37
+#13 23.69   Platform: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39
+#13 23.69   Host: buildkitsandbox
+#13 23.69   User: root
+#13 23.69   Snakemake version: 9.23.1
+#13 23.69   Python version: 3.11.15 | packaged by conda-forge | (main, Jun 11 2026, 03:34:02) [GCC 14.3.0]
+#13 23.69   Command: /app/.pixi/envs/default/bin/snakemake --snakefile /app/.pixi/envs/default/lib/python3.11/site-packages/binchicken/workflow/download.smk --configfile /app/build/download_config.yaml --directory /app/build/download --cores 1 --rerun-triggers mtime --rerun-incomplete --keep-going --nolock --local-cores 1 --retries 3
+#13 23.69   Snakefile: /app/.pixi/envs/default/lib/python3.11/site-packages/binchicken/workflow/download.smk
+#13 23.69   Base directory: /app/.pixi/envs/default/lib/python3.11/site-packages/binchicken/workflow
+#13 23.69   Run directory: /app
+#13 23.69   Working directory: /app/build/download
+#13 23.69   Config file(s): [PosixPath('/app/build/download_config.yaml')]
+#13 23.69   Config MD5: d3213df2827f7d6224c0a0803f61ebf5
+#13 23.69 
+#13 23.69 Building DAG of jobs...
+#13 23.69 Using shell: /usr/bin/bash
+#13 23.69 Provided cores: 1 (use --cores to define parallelism)
+#13 23.69 Rules claiming more threads will be scaled down.
+#13 23.69 Job stats:
+#13 23.69 job                count
+#13 23.69 ---------------  -------
+#13 23.69 aviary_download        1
+#13 23.69 all                    1
+#13 23.69 total                  2
+#13 23.69 
+#13 23.69 Select jobs to execute...
+#13 23.73 Execute 1 jobs...
+#13 23.73 
+#13 23.73 [Thu Jul 30 01:44:38 2026]
+#13 23.73 localrule aviary_download:
+#13 23.73     output: /app/build/download/download/aviary_downloads.done
+#13 23.73     jobid: 1
+#13 23.73     reason: Missing output files: /app/build/download/download/aviary_downloads.done
+#13 23.73     resources: tmpdir=/tmp, runtime=960, log_path=/app/build/download/download/logs/aviary_downloads/20260730_014438/attempt1.log, mem_mb=8000, mem=8 GB, mem_mib=7630
+#13 1364.6 [Thu Jul 30 02:06:59 2026]
+#13 1364.6 Finished jobid: 1 (Rule: aviary_download)
+#13 1364.6 1 of 2 steps (50%) done
+#13 1364.6 Select jobs to execute...
+#13 1364.7 Execute 1 jobs...
+#13 1364.7 
+#13 1364.7 [Thu Jul 30 02:06:59 2026]
+#13 1364.7 localrule all:
+#13 1364.7     input: /app/build/download/download/aviary_downloads.done
+#13 1364.7     jobid: 0
+#13 1364.7     reason: Input files updated by another job: /app/build/download/download/aviary_downloads.done
+#13 1364.7     resources: tmpdir=/tmp
+#13 1364.7 [Thu Jul 30 02:06:59 2026]
+#13 1364.7 Finished jobid: 0 (Rule: all)
+#13 1364.7 2 of 2 steps (100%) done
+#13 1364.7 Complete log(s): /app/build/download/.snakemake/log/2026-07-30T014438.310704.snakemake.log
+#13 1390.4 2026/07/30 02:07:25 AM INFO: Creating Aviary environments
+#13 1591.3 2026/07/30 02:10:46 AM INFO: ---- Bin Chicken build ---------------------------------------------------------
+#13 1591.3 2026/07/30 02:10:46 AM INFO: Bin Chicken build complete.
+#13 DONE 1592.4s
 
-#14 [10/13] RUN wget https://zenodo.org/api/records/14897628/files/checkm2_database.tar.gz/content -O /binchicken/checkm2_database.tar.gz &&     tar -xvzf /binchicken/checkm2_database.tar.gz -C /binchicken/ &&     rm /binchicken/checkm2_database.tar.gz
-#14 0.404 --2025-11-13 01:20:02--  https://zenodo.org/api/records/14897628/files/checkm2_database.tar.gz/content
-#14 0.412 Resolving zenodo.org (zenodo.org)... 137.138.52.235, 188.185.43.153, 188.185.48.75, ...
-#14 0.624 Connecting to zenodo.org (zenodo.org)|137.138.52.235|:443... connected.
-#14 1.220 HTTP request sent, awaiting response... 200 OK
-#14 1.879 Length: 1735095710 (1.6G) [application/octet-stream]
-#14 1.880 Saving to: '/binchicken/checkm2_database.tar.gz'
-#14 548.6 CONTENTS.json
-#14 548.6 CheckM2_database/
-#14 548.6 CheckM2_database/uniref100.KO.1.dmnd
-#14 DONE 605.1s
+#14 [10/11] RUN pixi run     binchicken coassemble     --forward bc/test/data/sample_1.1.fq bc/test/data/sample_2.1.fq bc/test/data/sample_3.1.fq     --reverse bc/test/data/sample_1.2.fq bc/test/data/sample_2.2.fq bc/test/data/sample_3.2.fq     --genomes bc/test/data/GB_GCA_013286235.1.fna     --assemble-unmapped --unmapping-max-identity 99 --unmapping-max-alignment 90     --prodigal-meta --output test_pixi
+#14 23.79 2026/07/30 02:11:11 AM INFO: Bin Chicken v0.14.1
+#14 23.79 2026/07/30 02:11:11 AM INFO: Command: binchicken coassemble --forward bc/test/data/sample_1.1.fq bc/test/data/sample_2.1.fq bc/test/data/sample_3.1.fq --reverse bc/test/data/sample_1.2.fq bc/test/data/sample_2.2.fq bc/test/data/sample_3.2.fq --genomes bc/test/data/GB_GCA_013286235.1.fna --assemble-unmapped --unmapping-max-identity 99 --unmapping-max-alignment 90 --prodigal-meta --output test_pixi
+#14 23.79 2026/07/30 02:11:11 AM INFO: Loading sample info
+#14 23.79 2026/07/30 02:11:11 AM INFO: Loading genome info
+#14 23.80 2026/07/30 02:11:11 AM INFO: Config file written to: /app/test_pixi/config.yaml
+#14 24.02 2026/07/30 02:11:11 AM INFO: Executing: snakemake --snakefile /app/.pixi/envs/default/lib/python3.11/site-packages/binchicken/workflow/coassemble.smk --configfile '/app/test_pixi/config.yaml' --directory /app/test_pixi --cores 1 --rerun-triggers mtime --rerun-incomplete --keep-going --nolock   --local-cores 1 --retries 3  
+#14 25.27 Assuming unrestricted shared filesystem usage.
+#14 25.27 
+#14 25.27 SNAKEMAKE
+#14 25.27 =========
+#14 25.27   Date: 2026-07-30 02:11:12
+#14 25.27   Workflow ID: 40253c74-58ff-43a8-b233-15d18187757d
+#14 25.27   Platform: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39
+#14 25.27   Host: buildkitsandbox
+#14 25.27   User: root
+#14 25.27   Snakemake version: 9.23.1
+#14 25.27   Python version: 3.11.15 | packaged by conda-forge | (main, Jun 11 2026, 03:34:02) [GCC 14.3.0]
+#14 25.27   Command: /app/.pixi/envs/default/bin/snakemake --snakefile /app/.pixi/envs/default/lib/python3.11/site-packages/binchicken/workflow/coassemble.smk --configfile /app/test_pixi/config.yaml --directory /app/test_pixi --cores 1 --rerun-triggers mtime --rerun-incomplete --keep-going --nolock --local-cores 1 --retries 3
+#14 25.27   Snakefile: /app/.pixi/envs/default/lib/python3.11/site-packages/binchicken/workflow/coassemble.smk
+#14 25.27   Base directory: /app/.pixi/envs/default/lib/python3.11/site-packages/binchicken/workflow
+#14 25.27   Run directory: /app
+#14 25.27   Working directory: /app/test_pixi
+#14 25.27   Config file(s): [PosixPath('/app/test_pixi/config.yaml')]
+#14 25.27   Config MD5: a8cfc1241b0e0ce7d19fb4f4cb1ed232
+#14 25.27 
+#14 25.27 Building DAG of jobs...
+#14 25.30 Using shell: /usr/bin/bash
+#14 25.30 Provided cores: 1 (use --cores to define parallelism)
+#14 25.30 Rules claiming more threads will be scaled down.
+#14 25.30 Job stats:
+#14 25.30 job                          count
+#14 25.30 -------------------------  -------
+#14 25.30 genome_transcripts               1
+#14 25.30 get_count_samples_list           2
+#14 25.30 get_genomes_named_list           1
+#14 25.30 get_reads_list                   2
+#14 25.30 get_reads_named_list             1
+#14 25.30 get_samples_list                 1
+#14 25.30 singlem_pipe_reads               3
+#14 25.30 count_bp_reads                   2
+#14 25.30 rename_pipe_reads                3
+#14 25.30 singlem_pipe_genomes             1
+#14 25.30 singlem_genomes_list             1
+#14 25.30 singlem_summarise_genomes        1
+#14 25.30 singlem_appraise                 1
+#14 25.30 singlem_appraise_filtered        1
+#14 25.30 collect_genomes                  3
+#14 25.30 target_elusive                   1
+#14 25.30 cluster_graph                    1
+#14 25.30 map_reads                        3
+#14 25.30 filter_bam_files                 3
+#14 25.30 bam_to_fastq                     3
+#14 25.30 finish_mapping                   1
+#14 25.30 aviary_commands                  1
+#14 25.30 summary                          1
+#14 25.30 all                              1
+#14 25.30 total                           39
+#14 25.30 
+#14 25.30 Select jobs to execute...
+#14 25.42 Execute 1 jobs...
+#14 25.42 
+#14 25.42 [Thu Jul 30 02:11:12 2026]
+#14 25.42 localrule get_reads_list:
+#14 25.42     input: /app/bc/test/data/sample_1.1.fq, /app/bc/test/data/sample_2.1.fq, /app/bc/test/data/sample_3.1.fq, /app/bc/test/data/sample_1.2.fq, /app/bc/test/data/sample_2.2.fq, /app/bc/test/data/sample_3.2.fq
+#14 25.42     output: /app/test_pixi/coassemble/lists/reads_1_list.tsv, /app/test_pixi/coassemble/lists/reads_2_list.tsv
+#14 25.42     jobid: 17
+#14 25.42     reason: Missing output files: /app/test_pixi/coassemble/lists/reads_1_list.tsv, /app/test_pixi/coassemble/lists/reads_2_list.tsv
+#14 25.42     wildcards: version=
+#14 25.42     resources: tmpdir=/tmp, runtime=300, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 27.32 Select jobs to execute...
+#14 27.54 [Thu Jul 30 02:11:14 2026]
+#14 27.54 Finished jobid: 17 (Rule: get_reads_list)
+#14 27.54 1 of 39 steps (3%) done
+#14 27.56 Execute 1 jobs...
+#14 27.56 
+#14 27.56 [Thu Jul 30 02:11:14 2026]
+#14 27.56 localrule singlem_pipe_reads:
+#14 27.56     input: /app/bc/test/data/sample_3.1.fq, /app/bc/test/data/sample_3.2.fq
+#14 27.56     output: /app/test_pixi/coassemble/pipe/sample_3_read_raw.otu_table.tsv
+#14 27.56     jobid: 9
+#14 27.56     benchmark: /app/test_pixi/coassemble/benchmarks/pipe/sample_3_read.tsv
+#14 27.56     reason: Missing output files: /app/test_pixi/coassemble/pipe/sample_3_read_raw.otu_table.tsv
+#14 27.56     wildcards: read=sample_3
+#14 27.56     resources: tmpdir=/tmp, runtime=1440, log_path=/app/test_pixi/coassemble/logs/pipe/sample_3_read/20260730_021112/attempt1.log, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 28.33 Select jobs to execute...
+#14 70.95 [Thu Jul 30 02:11:58 2026]
+#14 70.95 Finished jobid: 9 (Rule: singlem_pipe_reads)
+#14 70.95 2 of 39 steps (5%) done
+#14 70.99 Execute 1 jobs...
+#14 70.99 
+#14 70.99 [Thu Jul 30 02:11:58 2026]
+#14 70.99 localrule get_count_samples_list:
+#14 70.99     output: /app/test_pixi/coassemble/lists/unmapped_count_samples_list.tsv
+#14 70.99     jobid: 38
+#14 70.99     reason: Missing output files: /app/test_pixi/coassemble/lists/unmapped_count_samples_list.tsv
+#14 70.99     wildcards: version=unmapped_
+#14 70.99     resources: tmpdir=/tmp, runtime=300, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 71.58 Select jobs to execute...
+#14 73.77 [Thu Jul 30 02:12:01 2026]
+#14 73.77 Finished jobid: 38 (Rule: get_count_samples_list)
+#14 73.77 3 of 39 steps (8%) done
+#14 73.80 Execute 1 jobs...
+#14 73.80 
+#14 73.80 [Thu Jul 30 02:12:01 2026]
+#14 73.80 localrule get_reads_named_list:
+#14 73.80     output: /app/test_pixi/coassemble/lists/unmapped_reads_1_named_list.tsv, /app/test_pixi/coassemble/lists/unmapped_reads_2_named_list.tsv
+#14 73.80     jobid: 34
+#14 73.80     reason: Missing output files: /app/test_pixi/coassemble/lists/unmapped_reads_2_named_list.tsv, /app/test_pixi/coassemble/lists/unmapped_reads_1_named_list.tsv
+#14 73.80     wildcards: version=unmapped_
+#14 73.80     resources: tmpdir=/tmp, runtime=300, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 73.99 Select jobs to execute...
+#14 75.73 [Thu Jul 30 02:12:03 2026]
+#14 75.73 Finished jobid: 34 (Rule: get_reads_named_list)
+#14 75.73 4 of 39 steps (10%) done
+#14 75.75 Execute 1 jobs...
+#14 75.75 
+#14 75.75 [Thu Jul 30 02:12:03 2026]
+#14 75.75 localrule get_genomes_named_list:
+#14 75.75     output: /app/test_pixi/coassemble/lists/genomes_named_list.tsv
+#14 75.75     jobid: 25
+#14 75.75     reason: Missing output files: /app/test_pixi/coassemble/lists/genomes_named_list.tsv
+#14 75.75     resources: tmpdir=/tmp, runtime=300, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 75.80 Select jobs to execute...
+#14 77.71 [Thu Jul 30 02:12:05 2026]
+#14 77.71 Finished jobid: 25 (Rule: get_genomes_named_list)
+#14 77.71 5 of 39 steps (13%) done
+#14 77.73 Execute 1 jobs...
+#14 77.73 
+#14 77.73 [Thu Jul 30 02:12:05 2026]
+#14 77.73 localrule get_count_samples_list:
+#14 77.73     output: /app/test_pixi/coassemble/lists/count_samples_list.tsv
+#14 77.73     jobid: 18
+#14 77.73     reason: Missing output files: /app/test_pixi/coassemble/lists/count_samples_list.tsv
+#14 77.73     wildcards: version=
+#14 77.73     resources: tmpdir=/tmp, runtime=300, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 77.75 Select jobs to execute...
+#14 79.62 [Thu Jul 30 02:12:06 2026]
+#14 79.62 Finished jobid: 18 (Rule: get_count_samples_list)
+#14 79.62 6 of 39 steps (15%) done
+#14 79.65 Execute 1 jobs...
+#14 79.65 
+#14 79.65 [Thu Jul 30 02:12:06 2026]
+#14 79.65 localrule get_samples_list:
+#14 79.65     output: /app/test_pixi/coassemble/lists/samples_list.tsv
+#14 79.65     jobid: 15
+#14 79.65     reason: Missing output files: /app/test_pixi/coassemble/lists/samples_list.tsv
+#14 79.65     resources: tmpdir=/tmp, runtime=300, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 79.73 Select jobs to execute...
+#14 81.48 [Thu Jul 30 02:12:08 2026]
+#14 81.48 Finished jobid: 15 (Rule: get_samples_list)
+#14 81.48 7 of 39 steps (18%) done
+#14 81.50 Execute 1 jobs...
+#14 81.50 
+#14 81.50 [Thu Jul 30 02:12:08 2026]
+#14 81.50 localrule genome_transcripts:
+#14 81.50     input: /app/bc/test/data/GB_GCA_013286235.1.fna
+#14 81.50     output: /app/test_pixi/coassemble/transcripts/GB_GCA_013286235.1_protein.fna
+#14 81.50     jobid: 14
+#14 81.50     benchmark: /app/test_pixi/coassemble/benchmarks/transcripts/GB_GCA_013286235.1_protein.tsv
+#14 81.50     reason: Missing output files: /app/test_pixi/coassemble/transcripts/GB_GCA_013286235.1_protein.fna
+#14 81.50     wildcards: genome=GB_GCA_013286235.1
+#14 81.50     resources: tmpdir=/tmp, runtime=60, log_path=/app/test_pixi/coassemble/logs/transcripts/GB_GCA_013286235.1_protein/20260730_021112/attempt1.log, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 81.59 Select jobs to execute...
+#14 81.66 [Thu Jul 30 02:12:08 2026]
+#14 81.66 Finished jobid: 14 (Rule: genome_transcripts)
+#14 81.66 8 of 39 steps (21%) done
+#14 81.67 Execute 1 jobs...
+#14 81.67 
+#14 81.67 [Thu Jul 30 02:12:08 2026]
+#14 81.67 localrule singlem_pipe_genomes:
+#14 81.67     input: /app/test_pixi/coassemble/transcripts/GB_GCA_013286235.1_protein.fna
+#14 81.67     output: /app/test_pixi/coassemble/pipe/GB_GCA_013286235.1_bin.otu_table.tsv
+#14 81.67     jobid: 13
+#14 81.67     benchmark: /app/test_pixi/coassemble/benchmarks/pipe/GB_GCA_013286235.1_bin.tsv
+#14 81.67     reason: Missing output files: /app/test_pixi/coassemble/pipe/GB_GCA_013286235.1_bin.otu_table.tsv; Input files updated by another job: /app/test_pixi/coassemble/transcripts/GB_GCA_013286235.1_protein.fna
+#14 81.67     wildcards: genome=GB_GCA_013286235.1
+#14 81.67     resources: tmpdir=/tmp, runtime=60, log_path=/app/test_pixi/coassemble/logs/pipe/GB_GCA_013286235.1_bin/20260730_021112/attempt1.log, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 81.73 Select jobs to execute...
+#14 102.1 [Thu Jul 30 02:12:29 2026]
+#14 102.1 Finished jobid: 13 (Rule: singlem_pipe_genomes)
+#14 102.1 9 of 39 steps (23%) done
+#14 102.2 Execute 1 jobs...
+#14 102.2 
+#14 102.2 [Thu Jul 30 02:12:29 2026]
+#14 102.2 localrule singlem_pipe_reads:
+#14 102.2     input: /app/bc/test/data/sample_2.1.fq, /app/bc/test/data/sample_2.2.fq
+#14 102.2     output: /app/test_pixi/coassemble/pipe/sample_2_read_raw.otu_table.tsv
+#14 102.2     jobid: 7
+#14 102.2     benchmark: /app/test_pixi/coassemble/benchmarks/pipe/sample_2_read.tsv
+#14 102.2     reason: Missing output files: /app/test_pixi/coassemble/pipe/sample_2_read_raw.otu_table.tsv
+#14 102.2     wildcards: read=sample_2
+#14 102.2     resources: tmpdir=/tmp, runtime=1440, log_path=/app/test_pixi/coassemble/logs/pipe/sample_2_read/20260730_021112/attempt1.log, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 102.8 Select jobs to execute...
+#14 132.1 [Thu Jul 30 02:12:59 2026]
+#14 132.1 Finished jobid: 7 (Rule: singlem_pipe_reads)
+#14 132.1 10 of 39 steps (26%) done
+#14 132.1 Execute 1 jobs...
+#14 132.1 
+#14 132.1 [Thu Jul 30 02:12:59 2026]
+#14 132.1 localrule rename_pipe_reads:
+#14 132.1     input: /app/test_pixi/coassemble/pipe/sample_2_read_raw.otu_table.tsv
+#14 132.1     output: /app/test_pixi/coassemble/pipe/sample_2_read.otu_table.tsv
+#14 132.1     jobid: 6
+#14 132.1     reason: Missing output files: /app/test_pixi/coassemble/pipe/sample_2_read.otu_table.tsv; Input files updated by another job: /app/test_pixi/coassemble/pipe/sample_2_read_raw.otu_table.tsv
+#14 132.1     wildcards: read=sample_2
+#14 132.1     resources: tmpdir=/tmp, runtime=360, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 133.1 Select jobs to execute...
+#14 134.0 [Thu Jul 30 02:13:01 2026]
+#14 134.0 Finished jobid: 6 (Rule: rename_pipe_reads)
+#14 134.0 11 of 39 steps (28%) done
+#14 134.0 Execute 1 jobs...
+#14 134.0 
+#14 134.0 [Thu Jul 30 02:13:01 2026]
+#14 134.0 localrule singlem_genomes_list:
+#14 134.0     input: /app/test_pixi/coassemble/pipe/GB_GCA_013286235.1_bin.otu_table.tsv
+#14 134.0     output: /app/test_pixi/coassemble/summarise/bins_otu_table_list.tsv
+#14 134.0     jobid: 12
+#14 134.0     reason: Missing output files: /app/test_pixi/coassemble/summarise/bins_otu_table_list.tsv; Input files updated by another job: /app/test_pixi/coassemble/pipe/GB_GCA_013286235.1_bin.otu_table.tsv
+#14 134.0     wildcards: version=
+#14 134.0     resources: tmpdir=/tmp, runtime=300, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 134.1 Select jobs to execute...
+#14 135.9 [Thu Jul 30 02:13:03 2026]
+#14 135.9 Finished jobid: 12 (Rule: singlem_genomes_list)
+#14 135.9 12 of 39 steps (31%) done
+#14 135.9 Execute 1 jobs...
+#14 135.9 
+#14 135.9 [Thu Jul 30 02:13:03 2026]
+#14 135.9 localrule singlem_summarise_genomes:
+#14 135.9     input: /app/test_pixi/coassemble/summarise/bins_otu_table_list.tsv
+#14 135.9     output: /app/test_pixi/coassemble/summarise/bins_summarised.otu_table.tsv
+#14 135.9     jobid: 11
+#14 135.9     benchmark: /app/test_pixi/coassemble/benchmarks/summarise/genomes.tsv
+#14 135.9     reason: Missing output files: /app/test_pixi/coassemble/summarise/bins_summarised.otu_table.tsv; Input files updated by another job: /app/test_pixi/coassemble/summarise/bins_otu_table_list.tsv
+#14 135.9     wildcards: version=
+#14 135.9     resources: tmpdir=/tmp, runtime=1440, log_path=/app/test_pixi/coassemble/logs/summarise/genomes/20260730_021112/attempt1.log, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 136.0 Select jobs to execute...
+#14 136.5 [Thu Jul 30 02:13:03 2026]
+#14 136.5 Finished jobid: 11 (Rule: singlem_summarise_genomes)
+#14 136.5 13 of 39 steps (33%) done
+#14 136.5 Execute 1 jobs...
+#14 136.5 
+#14 136.5 [Thu Jul 30 02:13:03 2026]
+#14 136.5 localrule singlem_pipe_reads:
+#14 136.5     input: /app/bc/test/data/sample_1.1.fq, /app/bc/test/data/sample_1.2.fq
+#14 136.5     output: /app/test_pixi/coassemble/pipe/sample_1_read_raw.otu_table.tsv
+#14 136.5     jobid: 5
+#14 136.5     benchmark: /app/test_pixi/coassemble/benchmarks/pipe/sample_1_read.tsv
+#14 136.5     reason: Missing output files: /app/test_pixi/coassemble/pipe/sample_1_read_raw.otu_table.tsv
+#14 136.5     wildcards: read=sample_1
+#14 136.5     resources: tmpdir=/tmp, runtime=1440, log_path=/app/test_pixi/coassemble/logs/pipe/sample_1_read/20260730_021112/attempt1.log, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 136.9 Select jobs to execute...
+#14 167.0 [Thu Jul 30 02:13:34 2026]
+#14 167.0 Finished jobid: 5 (Rule: singlem_pipe_reads)
+#14 167.0 14 of 39 steps (36%) done
+#14 167.0 Execute 1 jobs...
+#14 167.0 
+#14 167.0 [Thu Jul 30 02:13:34 2026]
+#14 167.0 localrule rename_pipe_reads:
+#14 167.0     input: /app/test_pixi/coassemble/pipe/sample_1_read_raw.otu_table.tsv
+#14 167.0     output: /app/test_pixi/coassemble/pipe/sample_1_read.otu_table.tsv
+#14 167.0     jobid: 4
+#14 167.0     reason: Missing output files: /app/test_pixi/coassemble/pipe/sample_1_read.otu_table.tsv; Input files updated by another job: /app/test_pixi/coassemble/pipe/sample_1_read_raw.otu_table.tsv
+#14 167.0     wildcards: read=sample_1
+#14 167.0     resources: tmpdir=/tmp, runtime=360, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 167.3 Select jobs to execute...
+#14 168.8 [Thu Jul 30 02:13:36 2026]
+#14 168.8 Finished jobid: 4 (Rule: rename_pipe_reads)
+#14 168.8 15 of 39 steps (38%) done
+#14 168.8 Execute 1 jobs...
+#14 168.8 
+#14 168.8 [Thu Jul 30 02:13:36 2026]
+#14 168.8 localrule count_bp_reads:
+#14 168.8     input: /app/test_pixi/coassemble/lists/reads_1_list.tsv, /app/test_pixi/coassemble/lists/reads_2_list.tsv, /app/test_pixi/coassemble/lists/count_samples_list.tsv
+#14 168.8     output: /app/test_pixi/coassemble/read_size.csv
+#14 168.8     jobid: 16
+#14 168.8     reason: Missing output files: /app/test_pixi/coassemble/read_size.csv; Input files updated by another job: /app/test_pixi/coassemble/lists/reads_1_list.tsv, /app/test_pixi/coassemble/lists/reads_2_list.tsv, /app/test_pixi/coassemble/lists/count_samples_list.tsv
+#14 168.8     wildcards: version=
+#14 168.8     resources: tmpdir=/tmp, runtime=1440, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 169.0 Select jobs to execute...
+#14 169.2 [Thu Jul 30 02:13:36 2026]
+#14 169.2 Finished jobid: 16 (Rule: count_bp_reads)
+#14 169.2 16 of 39 steps (41%) done
+#14 169.2 Execute 1 jobs...
+#14 169.2 
+#14 169.2 [Thu Jul 30 02:13:36 2026]
+#14 169.2 localrule rename_pipe_reads:
+#14 169.2     input: /app/test_pixi/coassemble/pipe/sample_3_read_raw.otu_table.tsv
+#14 169.2     output: /app/test_pixi/coassemble/pipe/sample_3_read.otu_table.tsv
+#14 169.2     jobid: 8
+#14 169.2     reason: Missing output files: /app/test_pixi/coassemble/pipe/sample_3_read.otu_table.tsv; Input files updated by another job: /app/test_pixi/coassemble/pipe/sample_3_read_raw.otu_table.tsv
+#14 169.2     wildcards: read=sample_3
+#14 169.2     resources: tmpdir=/tmp, runtime=360, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 171.1 [Thu Jul 30 02:13:38 2026]
+#14 171.1 Finished jobid: 8 (Rule: rename_pipe_reads)
+#14 171.1 17 of 39 steps (44%) done
+#14 171.1 Select jobs to execute...
+#14 171.1 Execute 1 jobs...
+#14 171.1 
+#14 171.1 [Thu Jul 30 02:13:38 2026]
+#14 171.1 localrule singlem_appraise:
+#14 171.1     input: /app/test_pixi/coassemble/pipe/sample_1_read.otu_table.tsv, /app/test_pixi/coassemble/pipe/sample_2_read.otu_table.tsv, /app/test_pixi/coassemble/pipe/sample_3_read.otu_table.tsv, /app/test_pixi/coassemble/summarise/bins_summarised.otu_table.tsv
+#14 171.1     output: /app/test_pixi/coassemble/appraise/unbinned_raw.otu_table.tsv, /app/test_pixi/coassemble/appraise/binned_raw.otu_table.tsv
+#14 171.1     jobid: 10
+#14 171.1     benchmark: /app/test_pixi/coassemble/benchmarks/appraise/appraise.tsv
+#14 171.1     reason: Missing output files: /app/test_pixi/coassemble/appraise/unbinned_raw.otu_table.tsv, /app/test_pixi/coassemble/appraise/binned_raw.otu_table.tsv; Input files updated by another job: /app/test_pixi/coassemble/pipe/sample_2_read.otu_table.tsv, /app/test_pixi/coassemble/summarise/bins_summarised.otu_table.tsv, /app/test_pixi/coassemble/pipe/sample_1_read.otu_table.tsv, /app/test_pixi/coassemble/pipe/sample_3_read.otu_table.tsv
+#14 171.1     resources: tmpdir=/tmp, runtime=1440, log_path=/app/test_pixi/coassemble/logs/appraise/appraise/20260730_021112/attempt1.log, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 172.9 [Thu Jul 30 02:13:40 2026]
+#14 172.9 Finished jobid: 10 (Rule: singlem_appraise)
+#14 172.9 18 of 39 steps (46%) done
+#14 172.9 Select jobs to execute...
+#14 173.0 Execute 1 jobs...
+#14 173.0 
+#14 173.0 [Thu Jul 30 02:13:40 2026]
+#14 173.0 localrule singlem_appraise_filtered:
+#14 173.0     input: /app/test_pixi/coassemble/appraise/unbinned_raw.otu_table.tsv, /app/test_pixi/coassemble/appraise/binned_raw.otu_table.tsv
+#14 173.0     output: /app/test_pixi/coassemble/appraise/unbinned.otu_table.tsv, /app/test_pixi/coassemble/appraise/binned.otu_table.tsv
+#14 173.0     jobid: 3
+#14 173.0     reason: Missing output files: /app/test_pixi/coassemble/appraise/binned.otu_table.tsv, /app/test_pixi/coassemble/appraise/unbinned.otu_table.tsv; Input files updated by another job: /app/test_pixi/coassemble/appraise/unbinned_raw.otu_table.tsv, /app/test_pixi/coassemble/appraise/binned_raw.otu_table.tsv
+#14 173.0     resources: tmpdir=/tmp
+#14 173.0 [Thu Jul 30 02:13:40 2026]
+#14 173.0 Finished jobid: 3 (Rule: singlem_appraise_filtered)
+#14 173.0 19 of 39 steps (49%) done
+#14 173.0 Select jobs to execute...
+#14 173.0 Execute 1 jobs...
+#14 173.0 
+#14 173.0 [Thu Jul 30 02:13:40 2026]
+#14 173.0 localrule collect_genomes:
+#14 173.0     input: /app/test_pixi/coassemble/appraise/binned.otu_table.tsv, /app/test_pixi/coassemble/appraise/unbinned.otu_table.tsv, /app/test_pixi/coassemble/lists/genomes_named_list.tsv
+#14 173.0     output: /app/test_pixi/coassemble/mapping/sample_2_reference.fna
+#14 173.0     jobid: 29
+#14 173.0     reason: Missing output files: /app/test_pixi/coassemble/mapping/sample_2_reference.fna; Input files updated by another job: /app/test_pixi/coassemble/appraise/binned.otu_table.tsv, /app/test_pixi/coassemble/lists/genomes_named_list.tsv, /app/test_pixi/coassemble/appraise/unbinned.otu_table.tsv
+#14 173.0     wildcards: read=sample_2
+#14 173.0     resources: tmpdir=/tmp, runtime=1440, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 174.0 Select jobs to execute...
+#14 174.2 Polars using 1 threads
+#14 174.2 Warning: No reference bins found for sample_2
+#14 174.2 [Thu Jul 30 02:13:41 2026]
+#14 174.2 Finished jobid: 29 (Rule: collect_genomes)
+#14 174.2 20 of 39 steps (51%) done
+#14 174.2 Execute 1 jobs...
+#14 174.2 
+#14 174.2 [Thu Jul 30 02:13:41 2026]
+#14 174.2 localrule map_reads:
+#14 174.2     input: /app/bc/test/data/sample_2.1.fq, /app/bc/test/data/sample_2.2.fq, /app/test_pixi/coassemble/mapping/sample_2_reference.fna
+#14 174.2     output: /app/test_pixi/coassemble/mapping/sample_2_coverm
+#14 174.2     jobid: 28
+#14 174.2     benchmark: /app/test_pixi/coassemble/benchmarks/mapping/sample_2_coverm.tsv
+#14 174.2     reason: Missing output files: /app/test_pixi/coassemble/mapping/sample_2_coverm; Input files updated by another job: /app/test_pixi/coassemble/mapping/sample_2_reference.fna
+#14 174.2     wildcards: read=sample_2
+#14 174.2     resources: tmpdir=/tmp, runtime=720, log_path=/app/test_pixi/coassemble/logs/mapping/sample_2_coverm/20260730_021112/attempt1.log, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 174.4 [Thu Jul 30 02:13:41 2026]
+#14 174.4 Finished jobid: 28 (Rule: map_reads)
+#14 174.4 21 of 39 steps (54%) done
+#14 174.4 Select jobs to execute...
+#14 174.4 Execute 1 jobs...
+#14 174.4 
+#14 174.4 [Thu Jul 30 02:13:41 2026]
+#14 174.4 localrule collect_genomes:
+#14 174.4     input: /app/test_pixi/coassemble/appraise/binned.otu_table.tsv, /app/test_pixi/coassemble/appraise/unbinned.otu_table.tsv, /app/test_pixi/coassemble/lists/genomes_named_list.tsv
+#14 174.4     output: /app/test_pixi/coassemble/mapping/sample_1_reference.fna
+#14 174.4     jobid: 24
+#14 174.4     reason: Missing output files: /app/test_pixi/coassemble/mapping/sample_1_reference.fna; Input files updated by another job: /app/test_pixi/coassemble/appraise/binned.otu_table.tsv, /app/test_pixi/coassemble/lists/genomes_named_list.tsv, /app/test_pixi/coassemble/appraise/unbinned.otu_table.tsv
+#14 174.4     wildcards: read=sample_1
+#14 174.4     resources: tmpdir=/tmp, runtime=1440, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 174.7 Polars using 1 threads
+#14 174.8 [Thu Jul 30 02:13:42 2026]
+#14 174.8 Finished jobid: 24 (Rule: collect_genomes)
+#14 174.8 22 of 39 steps (56%) done
+#14 174.8 Select jobs to execute...
+#14 174.8 Execute 1 jobs...
+#14 174.8 
+#14 174.8 [Thu Jul 30 02:13:42 2026]
+#14 174.8 localrule target_elusive:
+#14 174.8     input: /app/test_pixi/coassemble/appraise/unbinned.otu_table.tsv, /app/test_pixi/coassemble/lists/samples_list.tsv
+#14 174.8     output: /app/test_pixi/coassemble/target/elusive_edges.tsv, /app/test_pixi/coassemble/target/targets.tsv
+#14 174.8     jobid: 2
+#14 174.8     benchmark: /app/test_pixi/coassemble/benchmarks/target/target_elusive.tsv
+#14 174.8     reason: Missing output files: /app/test_pixi/coassemble/target/elusive_edges.tsv; Input files updated by another job: /app/test_pixi/coassemble/lists/samples_list.tsv, /app/test_pixi/coassemble/appraise/unbinned.otu_table.tsv
+#14 174.8     resources: tmpdir=/tmp, runtime=1440, log_path=/app/test_pixi/coassemble/logs/target/target_elusive/20260730_021112/attempt1.log, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 175.0 Select jobs to execute...
+#14 175.4 [Thu Jul 30 02:13:42 2026]
+#14 175.4 Finished jobid: 2 (Rule: target_elusive)
+#14 175.4 23 of 39 steps (59%) done
+#14 175.4 Execute 1 jobs...
+#14 175.4 
+#14 175.4 [Thu Jul 30 02:13:42 2026]
+#14 175.4 localcheckpoint cluster_graph:
+#14 175.4     input: /app/test_pixi/coassemble/target/elusive_edges.tsv, /app/test_pixi/coassemble/read_size.csv
+#14 175.4     output: /app/test_pixi/coassemble/target/elusive_clusters.tsv
+#14 175.4     jobid: 1
+#14 175.4     benchmark: /app/test_pixi/coassemble/benchmarks/target/cluster_graph.tsv
+#14 175.4     reason: Missing output files: /app/test_pixi/coassemble/target/elusive_clusters.tsv; Input files updated by another job: /app/test_pixi/coassemble/target/elusive_edges.tsv, /app/test_pixi/coassemble/read_size.csv
+#14 175.4     resources: tmpdir=/tmp, runtime=2880, max_sample_combinations=100, log_path=/app/test_pixi/coassemble/logs/target/cluster_graph/20260730_021112/attempt1.log, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 175.4 DAG of jobs will be updated after completion.
+#14 175.4 Select jobs to execute...
+#14 175.7 [Thu Jul 30 02:13:42 2026]
+#14 175.7 Finished jobid: 1 (Rule: cluster_graph)
+#14 175.7 24 of 39 steps (62%) done
+#14 175.7 Updating checkpoint dependencies.
+#14 175.7 Removing temporary output /app/test_pixi/coassemble/pipe/sample_3_read_raw.otu_table.tsv.
+#14 175.7 Removing temporary output /app/test_pixi/coassemble/pipe/sample_2_read_raw.otu_table.tsv.
+#14 175.7 Removing temporary output /app/test_pixi/coassemble/pipe/sample_2_read_raw.otu_table.tsv.
+#14 175.7 Removing temporary output /app/test_pixi/coassemble/pipe/sample_1_read_raw.otu_table.tsv.
+#14 175.7 Removing temporary output /app/test_pixi/coassemble/pipe/sample_1_read_raw.otu_table.tsv.
+#14 175.7 Removing temporary output /app/test_pixi/coassemble/pipe/sample_3_read_raw.otu_table.tsv.
+#14 175.7 Removing temporary output /app/test_pixi/coassemble/appraise/unbinned_raw.otu_table.tsv.
+#14 175.7 Removing temporary output /app/test_pixi/coassemble/appraise/binned_raw.otu_table.tsv.
+#14 175.7 Removing temporary output /app/test_pixi/coassemble/appraise/unbinned_raw.otu_table.tsv.
+#14 175.7 Removing temporary output /app/test_pixi/coassemble/appraise/binned_raw.otu_table.tsv.
+#14 175.7 Removing temporary output /app/test_pixi/coassemble/mapping/sample_2_reference.fna.
+#14 175.7 Removing temporary output /app/test_pixi/coassemble/mapping/sample_2_reference.fna.
+#14 175.7 Execute 1 jobs...
+#14 175.7 
+#14 175.7 [Thu Jul 30 02:13:43 2026]
+#14 175.7 localrule collect_genomes:
+#14 175.7     input: /app/test_pixi/coassemble/appraise/binned.otu_table.tsv, /app/test_pixi/coassemble/appraise/unbinned.otu_table.tsv, /app/test_pixi/coassemble/lists/genomes_named_list.tsv
+#14 175.7     output: /app/test_pixi/coassemble/mapping/sample_3_reference.fna
+#14 175.7     jobid: 33
+#14 175.7     reason: Missing output files: /app/test_pixi/coassemble/mapping/sample_3_reference.fna; Input files updated by another job: /app/test_pixi/coassemble/appraise/binned.otu_table.tsv, /app/test_pixi/coassemble/lists/genomes_named_list.tsv, /app/test_pixi/coassemble/appraise/unbinned.otu_table.tsv
+#14 175.7     wildcards: read=sample_3
+#14 175.7     resources: tmpdir=/tmp, runtime=1440, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 175.8 Select jobs to execute...
+#14 175.9 Polars using 1 threads
+#14 175.9 Warning: No reference bins found for sample_3
+#14 176.0 [Thu Jul 30 02:13:43 2026]
+#14 176.0 Finished jobid: 33 (Rule: collect_genomes)
+#14 176.0 25 of 39 steps (64%) done
+#14 176.0 Execute 1 jobs...
+#14 176.0 
+#14 176.0 [Thu Jul 30 02:13:43 2026]
+#14 176.0 localrule map_reads:
+#14 176.0     input: /app/bc/test/data/sample_3.1.fq, /app/bc/test/data/sample_3.2.fq, /app/test_pixi/coassemble/mapping/sample_3_reference.fna
+#14 176.0     output: /app/test_pixi/coassemble/mapping/sample_3_coverm
+#14 176.0     jobid: 32
+#14 176.0     benchmark: /app/test_pixi/coassemble/benchmarks/mapping/sample_3_coverm.tsv
+#14 176.0     reason: Missing output files: /app/test_pixi/coassemble/mapping/sample_3_coverm; Input files updated by another job: /app/test_pixi/coassemble/mapping/sample_3_reference.fna
+#14 176.0     wildcards: read=sample_3
+#14 176.0     resources: tmpdir=/tmp, runtime=720, log_path=/app/test_pixi/coassemble/logs/mapping/sample_3_coverm/20260730_021112/attempt1.log, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 176.0 Select jobs to execute...
+#14 176.1 [Thu Jul 30 02:13:43 2026]
+#14 176.1 Finished jobid: 32 (Rule: map_reads)
+#14 176.1 26 of 39 steps (67%) done
+#14 176.1 Removing temporary output /app/test_pixi/coassemble/mapping/sample_3_reference.fna.
+#14 176.1 Execute 1 jobs...
+#14 176.1 
+#14 176.1 [Thu Jul 30 02:13:43 2026]
+#14 176.1 localrule map_reads:
+#14 176.1     input: /app/bc/test/data/sample_1.1.fq, /app/bc/test/data/sample_1.2.fq, /app/test_pixi/coassemble/mapping/sample_1_reference.fna
+#14 176.1     output: /app/test_pixi/coassemble/mapping/sample_1_coverm
+#14 176.1     jobid: 23
+#14 176.1     benchmark: /app/test_pixi/coassemble/benchmarks/mapping/sample_1_coverm.tsv
+#14 176.1     reason: Missing output files: /app/test_pixi/coassemble/mapping/sample_1_coverm; Input files updated by another job: /app/test_pixi/coassemble/mapping/sample_1_reference.fna
+#14 176.1     wildcards: read=sample_1
+#14 176.1     resources: tmpdir=/tmp, runtime=720, log_path=/app/test_pixi/coassemble/logs/mapping/sample_1_coverm/20260730_021112/attempt1.log, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 176.2 Select jobs to execute...
+#14 176.3 [Thu Jul 30 02:13:43 2026]
+#14 176.3 Finished jobid: 23 (Rule: map_reads)
+#14 176.3 27 of 39 steps (69%) done
+#14 176.3 Removing temporary output /app/test_pixi/coassemble/mapping/sample_1_reference.fna.
+#14 176.3 Execute 1 jobs...
+#14 176.3 
+#14 176.3 [Thu Jul 30 02:13:43 2026]
+#14 176.3 localrule filter_bam_files:
+#14 176.3     input: /app/test_pixi/coassemble/mapping/sample_2_coverm
+#14 176.3     output: /app/test_pixi/coassemble/mapping/sample_2_unmapped.bam
+#14 176.3     jobid: 27
+#14 176.3     benchmark: /app/test_pixi/coassemble/benchmarks/mapping/sample_2_filter.tsv
+#14 176.3     reason: Missing output files: /app/test_pixi/coassemble/mapping/sample_2_unmapped.bam; Input files updated by another job: /app/test_pixi/coassemble/mapping/sample_2_coverm
+#14 176.3     wildcards: read=sample_2
+#14 176.3     resources: tmpdir=/tmp, runtime=240, log_path=/app/test_pixi/coassemble/logs/mapping/sample_2_filter/20260730_021112/attempt1.log, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 176.4 [Thu Jul 30 02:13:43 2026]
+#14 176.4 Finished jobid: 27 (Rule: filter_bam_files)
+#14 176.4 28 of 39 steps (72%) done
+#14 176.4 Removing temporary output /app/test_pixi/coassemble/mapping/sample_2_coverm.
+#14 176.4 Select jobs to execute...
+#14 176.4 Execute 1 jobs...
+#14 176.4 
+#14 176.4 [Thu Jul 30 02:13:43 2026]
+#14 176.4 localrule bam_to_fastq:
+#14 176.4     input: /app/test_pixi/coassemble/mapping/sample_2_unmapped.bam
+#14 176.4     output: /app/test_pixi/coassemble/mapping/sample_2_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_2_unmapped.2.fq.gz
+#14 176.4     jobid: 26
+#14 176.4     reason: Missing output files: /app/test_pixi/coassemble/mapping/sample_2_unmapped.2.fq.gz, /app/test_pixi/coassemble/mapping/sample_2_unmapped.1.fq.gz; Input files updated by another job: /app/test_pixi/coassemble/mapping/sample_2_unmapped.bam
+#14 176.4     wildcards: read=sample_2
+#14 176.4     resources: tmpdir=/tmp, runtime=240, log_path=/app/test_pixi/coassemble/logs/mapping/sample_2_fastq/20260730_021112/attempt1.log, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 176.4 Select jobs to execute...
+#14 176.5 [Thu Jul 30 02:13:43 2026]
+#14 176.5 Finished jobid: 26 (Rule: bam_to_fastq)
+#14 176.5 29 of 39 steps (74%) done
+#14 176.5 Removing temporary output /app/test_pixi/coassemble/mapping/sample_2_unmapped.bam.
+#14 176.5 Execute 1 jobs...
+#14 176.5 
+#14 176.5 [Thu Jul 30 02:13:43 2026]
+#14 176.5 localrule filter_bam_files:
+#14 176.5     input: /app/test_pixi/coassemble/mapping/sample_3_coverm
+#14 176.5     output: /app/test_pixi/coassemble/mapping/sample_3_unmapped.bam
+#14 176.5     jobid: 31
+#14 176.5     benchmark: /app/test_pixi/coassemble/benchmarks/mapping/sample_3_filter.tsv
+#14 176.5     reason: Missing output files: /app/test_pixi/coassemble/mapping/sample_3_unmapped.bam; Input files updated by another job: /app/test_pixi/coassemble/mapping/sample_3_coverm
+#14 176.5     wildcards: read=sample_3
+#14 176.5     resources: tmpdir=/tmp, runtime=240, log_path=/app/test_pixi/coassemble/logs/mapping/sample_3_filter/20260730_021112/attempt1.log, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 176.6 [Thu Jul 30 02:13:43 2026]
+#14 176.6 Finished jobid: 31 (Rule: filter_bam_files)
+#14 176.6 30 of 39 steps (77%) done
+#14 176.6 Removing temporary output /app/test_pixi/coassemble/mapping/sample_3_coverm.
+#14 176.6 Select jobs to execute...
+#14 176.6 Execute 1 jobs...
+#14 176.6 
+#14 176.6 [Thu Jul 30 02:13:43 2026]
+#14 176.6 localrule bam_to_fastq:
+#14 176.6     input: /app/test_pixi/coassemble/mapping/sample_3_unmapped.bam
+#14 176.6     output: /app/test_pixi/coassemble/mapping/sample_3_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_3_unmapped.2.fq.gz
+#14 176.6     jobid: 30
+#14 176.6     reason: Missing output files: /app/test_pixi/coassemble/mapping/sample_3_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_3_unmapped.2.fq.gz; Input files updated by another job: /app/test_pixi/coassemble/mapping/sample_3_unmapped.bam
+#14 176.6     wildcards: read=sample_3
+#14 176.6     resources: tmpdir=/tmp, runtime=240, log_path=/app/test_pixi/coassemble/logs/mapping/sample_3_fastq/20260730_021112/attempt1.log, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 176.7 Select jobs to execute...
+#14 176.7 [Thu Jul 30 02:13:44 2026]
+#14 176.7 Finished jobid: 30 (Rule: bam_to_fastq)
+#14 176.7 31 of 39 steps (79%) done
+#14 176.7 Removing temporary output /app/test_pixi/coassemble/mapping/sample_3_unmapped.bam.
+#14 176.7 Execute 1 jobs...
+#14 176.7 
+#14 176.7 [Thu Jul 30 02:13:44 2026]
+#14 176.7 localrule filter_bam_files:
+#14 176.7     input: /app/test_pixi/coassemble/mapping/sample_1_coverm
+#14 176.7     output: /app/test_pixi/coassemble/mapping/sample_1_unmapped.bam
+#14 176.7     jobid: 22
+#14 176.7     benchmark: /app/test_pixi/coassemble/benchmarks/mapping/sample_1_filter.tsv
+#14 176.7     reason: Missing output files: /app/test_pixi/coassemble/mapping/sample_1_unmapped.bam; Input files updated by another job: /app/test_pixi/coassemble/mapping/sample_1_coverm
+#14 176.7     wildcards: read=sample_1
+#14 176.7     resources: tmpdir=/tmp, runtime=240, log_path=/app/test_pixi/coassemble/logs/mapping/sample_1_filter/20260730_021112/attempt1.log, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 176.8 [Thu Jul 30 02:13:44 2026]
+#14 176.8 Finished jobid: 22 (Rule: filter_bam_files)
+#14 176.8 32 of 39 steps (82%) done
+#14 176.8 Removing temporary output /app/test_pixi/coassemble/mapping/sample_1_coverm.
+#14 176.8 Select jobs to execute...
+#14 176.8 Execute 1 jobs...
+#14 176.8 
+#14 176.8 [Thu Jul 30 02:13:44 2026]
+#14 176.8 localrule bam_to_fastq:
+#14 176.8     input: /app/test_pixi/coassemble/mapping/sample_1_unmapped.bam
+#14 176.8     output: /app/test_pixi/coassemble/mapping/sample_1_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_1_unmapped.2.fq.gz
+#14 176.8     jobid: 21
+#14 176.8     reason: Missing output files: /app/test_pixi/coassemble/mapping/sample_1_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_1_unmapped.2.fq.gz; Input files updated by another job: /app/test_pixi/coassemble/mapping/sample_1_unmapped.bam
+#14 176.8     wildcards: read=sample_1
+#14 176.8     resources: tmpdir=/tmp, runtime=240, log_path=/app/test_pixi/coassemble/logs/mapping/sample_1_fastq/20260730_021112/attempt1.log, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 176.9 [Thu Jul 30 02:13:44 2026]
+#14 176.9 Finished jobid: 21 (Rule: bam_to_fastq)
+#14 176.9 33 of 39 steps (85%) done
+#14 176.9 Removing temporary output /app/test_pixi/coassemble/mapping/sample_1_unmapped.bam.
+#14 176.9 Select jobs to execute...
+#14 177.0 Execute 1 jobs...
+#14 177.0 
+#14 177.0 [Thu Jul 30 02:13:44 2026]
+#14 177.0 localrule finish_mapping:
+#14 177.0     input: /app/test_pixi/coassemble/mapping/sample_1_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_2_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_3_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_1_unmapped.2.fq.gz, /app/test_pixi/coassemble/mapping/sample_2_unmapped.2.fq.gz, /app/test_pixi/coassemble/mapping/sample_3_unmapped.2.fq.gz
+#14 177.0     output: /app/test_pixi/coassemble/mapping/done
+#14 177.0     jobid: 20
+#14 177.0     reason: Missing output files: /app/test_pixi/coassemble/mapping/done; Input files updated by another job: /app/test_pixi/coassemble/mapping/sample_3_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_1_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_1_unmapped.2.fq.gz, /app/test_pixi/coassemble/mapping/sample_2_unmapped.2.fq.gz, /app/test_pixi/coassemble/mapping/sample_3_unmapped.2.fq.gz, /app/test_pixi/coassemble/mapping/sample_2_unmapped.1.fq.gz
+#14 177.0     resources: tmpdir=/tmp
+#14 177.0 [Thu Jul 30 02:13:44 2026]
+#14 177.0 Finished jobid: 20 (Rule: finish_mapping)
+#14 177.0 34 of 39 steps (87%) done
+#14 177.0 Select jobs to execute...
+#14 177.0 Execute 1 jobs...
+#14 177.0 
+#14 177.0 [Thu Jul 30 02:13:44 2026]
+#14 177.0 localrule get_reads_list:
+#14 177.0     input: /app/test_pixi/coassemble/mapping/sample_1_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_2_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_3_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_1_unmapped.2.fq.gz, /app/test_pixi/coassemble/mapping/sample_2_unmapped.2.fq.gz, /app/test_pixi/coassemble/mapping/sample_3_unmapped.2.fq.gz
+#14 177.0     output: /app/test_pixi/coassemble/lists/unmapped_reads_1_list.tsv, /app/test_pixi/coassemble/lists/unmapped_reads_2_list.tsv
+#14 177.0     jobid: 37
+#14 177.0     reason: Missing output files: /app/test_pixi/coassemble/lists/unmapped_reads_1_list.tsv, /app/test_pixi/coassemble/lists/unmapped_reads_2_list.tsv; Input files updated by another job: /app/test_pixi/coassemble/mapping/sample_3_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_1_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_1_unmapped.2.fq.gz, /app/test_pixi/coassemble/mapping/sample_2_unmapped.2.fq.gz, /app/test_pixi/coassemble/mapping/sample_3_unmapped.2.fq.gz, /app/test_pixi/coassemble/mapping/sample_2_unmapped.1.fq.gz
+#14 177.0     wildcards: version=unmapped_
+#14 177.0     resources: tmpdir=/tmp, runtime=300, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 177.0 Select jobs to execute...
+#14 178.9 [Thu Jul 30 02:13:46 2026]
+#14 178.9 Finished jobid: 37 (Rule: get_reads_list)
+#14 178.9 35 of 39 steps (90%) done
+#14 178.9 Execute 1 jobs...
+#14 178.9 
+#14 178.9 [Thu Jul 30 02:13:46 2026]
+#14 178.9 localrule aviary_commands:
+#14 178.9     input: /app/test_pixi/coassemble/mapping/done, /app/test_pixi/coassemble/target/elusive_clusters.tsv, /app/test_pixi/coassemble/lists/unmapped_reads_1_named_list.tsv, /app/test_pixi/coassemble/lists/unmapped_reads_2_named_list.tsv
+#14 178.9     output: /app/test_pixi/coassemble/commands/coassemble_commands.sh, /app/test_pixi/coassemble/commands/recover_commands.sh
+#14 178.9     jobid: 19
+#14 178.9     reason: Missing output files: /app/test_pixi/coassemble/commands/coassemble_commands.sh, /app/test_pixi/coassemble/commands/recover_commands.sh; Input files updated by another job: /app/test_pixi/coassemble/mapping/done
+#14 178.9     resources: tmpdir=/tmp, log_path=/app/test_pixi/coassemble/logs/aviary_commands/20260730_021112/attempt1.log
+#14 179.0 Select jobs to execute...
+#14 179.2 [Thu Jul 30 02:13:46 2026]
+#14 179.2 Finished jobid: 19 (Rule: aviary_commands)
+#14 179.2 36 of 39 steps (92%) done
+#14 179.2 Execute 1 jobs...
+#14 179.2 
+#14 179.2 [Thu Jul 30 02:13:46 2026]
+#14 179.2 localrule count_bp_reads:
+#14 179.2     input: /app/test_pixi/coassemble/lists/unmapped_reads_1_list.tsv, /app/test_pixi/coassemble/lists/unmapped_reads_2_list.tsv, /app/test_pixi/coassemble/lists/unmapped_count_samples_list.tsv
+#14 179.2     output: /app/test_pixi/coassemble/unmapped_read_size.csv
+#14 179.2     jobid: 36
+#14 179.2     reason: Missing output files: /app/test_pixi/coassemble/unmapped_read_size.csv; Input files updated by another job: /app/test_pixi/coassemble/lists/unmapped_count_samples_list.tsv, /app/test_pixi/coassemble/lists/unmapped_reads_1_list.tsv, /app/test_pixi/coassemble/lists/unmapped_reads_2_list.tsv
+#14 179.2     wildcards: version=unmapped_
+#14 179.2     resources: tmpdir=/tmp, runtime=1440, mem_mb=8000, mem=8 GB, mem_mib=7630
+#14 179.4 [Thu Jul 30 02:13:46 2026]
+#14 179.4 Finished jobid: 36 (Rule: count_bp_reads)
+#14 179.4 37 of 39 steps (95%) done
+#14 179.4 Select jobs to execute...
+#14 179.4 Execute 1 jobs...
+#14 179.4 
+#14 179.4 [Thu Jul 30 02:13:46 2026]
+#14 179.4 localrule summary:
+#14 179.4     input: /app/test_pixi/coassemble/target/elusive_clusters.tsv, /app/test_pixi/coassemble/unmapped_read_size.csv
+#14 179.4     output: /app/test_pixi/coassemble/summary.tsv
+#14 179.4     jobid: 35
+#14 179.4     reason: Missing output files: /app/test_pixi/coassemble/summary.tsv; Input files updated by another job: /app/test_pixi/coassemble/unmapped_read_size.csv
+#14 179.4     resources: tmpdir=/tmp
+#14 179.6 Polars using 1 threads
+#14 179.7 [Thu Jul 30 02:13:47 2026]
+#14 179.7 Finished jobid: 35 (Rule: summary)
+#14 179.7 38 of 39 steps (97%) done
+#14 179.7 Select jobs to execute...
+#14 179.7 Execute 1 jobs...
+#14 179.7 
+#14 179.7 [Thu Jul 30 02:13:47 2026]
+#14 179.7 localrule all:
+#14 179.7     input: /app/test_pixi/coassemble/target/elusive_clusters.tsv, /app/test_pixi/coassemble/commands/coassemble_commands.sh, /app/test_pixi/coassemble/commands/recover_commands.sh, /app/test_pixi/coassemble/summary.tsv
+#14 179.7     jobid: 0
+#14 179.7     reason: Input files updated by another job: /app/test_pixi/coassemble/commands/coassemble_commands.sh, /app/test_pixi/coassemble/commands/recover_commands.sh, /app/test_pixi/coassemble/summary.tsv
+#14 179.7     resources: tmpdir=/tmp
+#14 179.7 [Thu Jul 30 02:13:47 2026]
+#14 179.7 Finished jobid: 0 (Rule: all)
+#14 179.7 39 of 39 steps (100%) done
+#14 179.7 Complete log(s): /app/test_pixi/.snakemake/log/2026-07-30T021112.316482.snakemake.log
+#14 180.9 2026/07/30 02:13:48 AM INFO: ---- Bin Chicken coassemble ----------------------------------------------------
+#14 180.9 2026/07/30 02:13:48 AM INFO: Bin Chicken coassemble complete.
+#14 180.9 2026/07/30 02:13:48 AM INFO: Identified 1 coassemblies, including 1 2-sample.
+#14 180.9 2026/07/30 02:13:48 AM INFO: Cluster summary at /app/test_pixi/coassemble/summary.tsv
+#14 180.9 2026/07/30 02:13:48 AM INFO: More details at /app/test_pixi/coassemble/target/elusive_clusters.tsv
+#14 180.9 2026/07/30 02:13:48 AM INFO: Aviary commands for coassembly and recovery in shell scripts at /app/test_pixi/coassemble/commands
+#14 DONE 181.0s
 
-#15 [11/13] RUN pixi run     binchicken build     --checkm2-db /binchicken/CheckM2_database     --singlem-metapackage /binchicken/singlem_metapackage     --download-databases
-#15 2.995 2025/11/13 01:30:09 AM INFO: Bin Chicken v0.13.5
-#15 2.995 2025/11/13 01:30:09 AM INFO: Command: binchicken build --checkm2-db /binchicken/CheckM2_database --singlem-metapackage /binchicken/singlem_metapackage --download-databases
-#15 55.43 2025/11/13 01:31:02 AM INFO: Downloading databases
-#15 55.83 2025/11/13 01:31:02 AM INFO: Executing: snakemake --snakefile /app/.pixi/envs/default/lib/python3.10/site-packages/binchicken/workflow/download.smk --configfile '/app/build/download_config.yaml' --directory /app/build/download --cores 1 --rerun-triggers mtime --rerun-incomplete --keep-going --nolock   --local-cores 1 --retries 3  
-#15 56.22 Creating specified working directory /app/build/download.
-#15 56.65 Building DAG of jobs...
-#15 56.66 Using shell: /usr/bin/bash
-#15 56.66 Provided cores: 1 (use --cores to define parallelism)
-#15 56.66 Rules claiming more threads will be scaled down.
-#15 56.70 Job stats:
-#15 56.70 job                count
-#15 56.70 ---------------  -------
-#15 56.70 all                    1
-#15 56.70 aviary_download        1
-#15 56.70 total                  2
-#15 56.70 
-#15 56.70 Select jobs to execute...
-#15 56.79 /app/.pixi/envs/default/lib/python3.10/site-packages/stopit/__init__.py:10: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-#15 56.79   import pkg_resources
-#15 56.88 
-#15 56.88 [Thu Nov 13 01:31:03 2025]
-#15 56.88 rule aviary_download:
-#15 56.88     output: /app/build/download/download/aviary_downloads.done
-#15 56.88     jobid: 1
-#15 56.88     reason: Missing output files: /app/build/download/download/aviary_downloads.done
-#15 56.88     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=960, log_path=/app/build/download/download/logs/aviary_downloads/20251113_013103/attempt1.log
-#15 56.88 
-#15 624.4 [Thu Nov 13 01:40:31 2025]
-#15 624.4 Finished job 1.
-#15 624.4 1 of 2 steps (50%) done
-#15 624.4 Select jobs to execute...
-#15 624.4 
-#15 624.4 [Thu Nov 13 01:40:31 2025]
-#15 624.4 localrule all:
-#15 624.4     input: /app/build/download/download/aviary_downloads.done
-#15 624.4     jobid: 0
-#15 624.4     reason: Input files updated by another job: /app/build/download/download/aviary_downloads.done
-#15 624.4     resources: tmpdir=/tmp
-#15 624.4 
-#15 624.4 [Thu Nov 13 01:40:31 2025]
-#15 624.4 Finished job 0.
-#15 624.4 2 of 2 steps (100%) done
-#15 624.4 Complete log: .snakemake/log/2025-11-13T013103.177183.snakemake.log
-#15 696.3 2025/11/13 01:41:43 AM INFO: Creating Aviary environments
-#15 1550.3 2025/11/13 01:55:57 AM INFO: ---- Bin Chicken build ---------------------------------------------------------
-#15 1550.3 2025/11/13 01:55:57 AM INFO: Bin Chicken build complete.
-#15 DONE 1552.7s
+#15 [11/11] RUN cat test_pixi/coassemble/target/elusive_clusters.tsv
+#15 0.489 samples	length	total_targets	total_size	recover_samples	coassembly
+#15 0.489 sample_1,sample_2	2	3	8758	sample_1,sample_2,sample_3	coassembly_0
+#15 DONE 0.5s
 
-#16 [12/13] RUN pixi run     binchicken coassemble     --forward bc/test/data/sample_1.1.fq bc/test/data/sample_2.1.fq bc/test/data/sample_3.1.fq     --reverse bc/test/data/sample_1.2.fq bc/test/data/sample_2.2.fq bc/test/data/sample_3.2.fq     --genomes bc/test/data/GB_GCA_013286235.1.fna     --assemble-unmapped --unmapping-max-identity 99 --unmapping-max-alignment 90     --prodigal-meta --output test_pixi
-#16 8.615 2025/11/13 01:56:08 AM INFO: Bin Chicken v0.13.5
-#16 8.615 2025/11/13 01:56:08 AM INFO: Command: binchicken coassemble --forward bc/test/data/sample_1.1.fq bc/test/data/sample_2.1.fq bc/test/data/sample_3.1.fq --reverse bc/test/data/sample_1.2.fq bc/test/data/sample_2.2.fq bc/test/data/sample_3.2.fq --genomes bc/test/data/GB_GCA_013286235.1.fna --assemble-unmapped --unmapping-max-identity 99 --unmapping-max-alignment 90 --prodigal-meta --output test_pixi
-#16 8.616 2025/11/13 01:56:08 AM INFO: Loading sample info
-#16 8.616 2025/11/13 01:56:08 AM INFO: Loading genome info
-#16 8.637 2025/11/13 01:56:08 AM INFO: Config file written to: /app/test_pixi/config.yaml
-#16 9.236 2025/11/13 01:56:08 AM INFO: Executing: snakemake --snakefile /app/.pixi/envs/default/lib/python3.10/site-packages/binchicken/workflow/coassemble.smk --configfile '/app/test_pixi/config.yaml' --directory /app/test_pixi --cores 1 --rerun-triggers mtime --rerun-incomplete --keep-going --nolock   --local-cores 1 --retries 3  
-#16 11.80 Building DAG of jobs...
-#16 11.87 Using shell: /usr/bin/bash
-#16 11.87 Provided cores: 1 (use --cores to define parallelism)
-#16 11.87 Rules claiming more threads will be scaled down.
-#16 11.89 Job stats:
-#16 11.89 job                          count
-#16 11.89 -------------------------  -------
-#16 11.89 all                              1
-#16 11.89 aviary_commands                  1
-#16 11.89 bam_to_fastq                     3
-#16 11.89 cluster_graph                    1
-#16 11.89 collect_genomes                  3
-#16 11.89 count_bp_reads                   2
-#16 11.89 filter_bam_files                 3
-#16 11.89 finish_mapping                   1
-#16 11.89 genome_transcripts               1
-#16 11.89 get_count_samples_list           2
-#16 11.89 get_genomes_named_list           1
-#16 11.89 get_reads_list                   2
-#16 11.89 get_reads_named_list             1
-#16 11.89 get_samples_list                 1
-#16 11.89 map_reads                        3
-#16 11.89 rename_pipe_reads                3
-#16 11.89 singlem_appraise                 1
-#16 11.89 singlem_appraise_filtered        1
-#16 11.89 singlem_genomes_list             1
-#16 11.89 singlem_pipe_genomes             1
-#16 11.89 singlem_pipe_reads               3
-#16 11.89 singlem_summarise_genomes        1
-#16 11.89 summary                          1
-#16 11.89 target_elusive                   1
-#16 11.89 total                           39
-#16 11.89 
-#16 11.89 Select jobs to execute...
-#16 12.11 /app/.pixi/envs/default/lib/python3.10/site-packages/stopit/__init__.py:10: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-#16 12.11   import pkg_resources
-#16 12.73 
-#16 12.73 [Thu Nov 13 01:56:12 2025]
-#16 12.73 rule get_count_samples_list:
-#16 12.73     output: /app/test_pixi/coassemble/lists/unmapped_count_samples_list.tsv
-#16 12.73     jobid: 38
-#16 12.73     reason: Missing output files: /app/test_pixi/coassemble/lists/unmapped_count_samples_list.tsv
-#16 12.73     wildcards: version=unmapped_
-#16 12.73     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=300
-#16 12.73 
-#16 14.60 Building DAG of jobs...
-#16 14.60 Using shell: /usr/bin/bash
-#16 14.60 Provided cores: 1 (use --cores to define parallelism)
-#16 14.60 Rules claiming more threads will be scaled down.
-#16 14.60 Provided resources: mem_mb=8000, mem_mib=7630
-#16 14.60 Select jobs to execute...
-#16 14.64 /app/.pixi/envs/default/lib/python3.10/site-packages/stopit/__init__.py:10: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-#16 14.64   import pkg_resources
-#16 14.81 [Thu Nov 13 01:56:14 2025]
-#16 14.81 Finished job 38.
-#16 14.81 1 of 39 steps (3%) done
-#16 14.81 Select jobs to execute...
-#16 14.85 
-#16 14.85 [Thu Nov 13 01:56:14 2025]
-#16 14.85 rule singlem_pipe_reads:
-#16 14.85     input: /app/bc/test/data/sample_3.1.fq, /app/bc/test/data/sample_3.2.fq
-#16 14.85     output: /app/test_pixi/coassemble/pipe/sample_3_read_raw.otu_table.tsv
-#16 14.85     jobid: 9
-#16 14.85     benchmark: /app/test_pixi/coassemble/benchmarks/pipe/sample_3_read.tsv
-#16 14.85     reason: Missing output files: /app/test_pixi/coassemble/pipe/sample_3_read_raw.otu_table.tsv
-#16 14.85     wildcards: read=sample_3
-#16 14.85     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=1440, log_path=/app/test_pixi/coassemble/logs/pipe/sample_3_read/20251113_015611/attempt1.log
-#16 14.85 
-#16 99.07 [Thu Nov 13 01:57:38 2025]
-#16 99.08 Finished job 9.
-#16 99.08 2 of 39 steps (5%) done
-#16 99.08 Select jobs to execute...
-#16 99.41 
-#16 99.41 [Thu Nov 13 01:57:39 2025]
-#16 99.41 rule rename_pipe_reads:
-#16 99.41     input: /app/test_pixi/coassemble/pipe/sample_3_read_raw.otu_table.tsv
-#16 99.41     output: /app/test_pixi/coassemble/pipe/sample_3_read.otu_table.tsv
-#16 99.41     jobid: 8
-#16 99.41     reason: Missing output files: /app/test_pixi/coassemble/pipe/sample_3_read.otu_table.tsv; Input files updated by another job: /app/test_pixi/coassemble/pipe/sample_3_read_raw.otu_table.tsv
-#16 99.41     wildcards: read=sample_3
-#16 99.41     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=360
-#16 99.41 
-#16 101.0 Building DAG of jobs...
-#16 101.0 Using shell: /usr/bin/bash
-#16 101.0 Provided cores: 1 (use --cores to define parallelism)
-#16 101.0 Rules claiming more threads will be scaled down.
-#16 101.0 Provided resources: mem_mb=8000, mem_mib=7630
-#16 101.0 Select jobs to execute...
-#16 101.1 /app/.pixi/envs/default/lib/python3.10/site-packages/stopit/__init__.py:10: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-#16 101.1   import pkg_resources
-#16 101.4 [Thu Nov 13 01:57:41 2025]
-#16 101.4 Finished job 8.
-#16 101.4 3 of 39 steps (8%) done
-#16 101.4 Removing temporary output /app/test_pixi/coassemble/pipe/sample_3_read_raw.otu_table.tsv.
-#16 101.4 Select jobs to execute...
-#16 101.4 
-#16 101.4 [Thu Nov 13 01:57:41 2025]
-#16 101.4 rule singlem_pipe_reads:
-#16 101.4     input: /app/bc/test/data/sample_2.1.fq, /app/bc/test/data/sample_2.2.fq
-#16 101.4     output: /app/test_pixi/coassemble/pipe/sample_2_read_raw.otu_table.tsv
-#16 101.4     jobid: 7
-#16 101.4     benchmark: /app/test_pixi/coassemble/benchmarks/pipe/sample_2_read.tsv
-#16 101.4     reason: Missing output files: /app/test_pixi/coassemble/pipe/sample_2_read_raw.otu_table.tsv
-#16 101.4     wildcards: read=sample_2
-#16 101.4     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=1440, log_path=/app/test_pixi/coassemble/logs/pipe/sample_2_read/20251113_015611/attempt1.log
-#16 101.4 
-#16 125.2 [Thu Nov 13 01:58:04 2025]
-#16 125.2 Finished job 7.
-#16 125.2 4 of 39 steps (10%) done
-#16 125.2 Select jobs to execute...
-#16 125.2 
-#16 125.2 [Thu Nov 13 01:58:04 2025]
-#16 125.2 rule rename_pipe_reads:
-#16 125.2     input: /app/test_pixi/coassemble/pipe/sample_2_read_raw.otu_table.tsv
-#16 125.2     output: /app/test_pixi/coassemble/pipe/sample_2_read.otu_table.tsv
-#16 125.2     jobid: 6
-#16 125.2     reason: Missing output files: /app/test_pixi/coassemble/pipe/sample_2_read.otu_table.tsv; Input files updated by another job: /app/test_pixi/coassemble/pipe/sample_2_read_raw.otu_table.tsv
-#16 125.2     wildcards: read=sample_2
-#16 125.2     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=360
-#16 125.2 
-#16 125.8 Building DAG of jobs...
-#16 125.8 Using shell: /usr/bin/bash
-#16 125.8 Provided cores: 1 (use --cores to define parallelism)
-#16 125.8 Rules claiming more threads will be scaled down.
-#16 125.8 Provided resources: mem_mb=8000, mem_mib=7630
-#16 125.8 Select jobs to execute...
-#16 125.8 /app/.pixi/envs/default/lib/python3.10/site-packages/stopit/__init__.py:10: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-#16 125.8   import pkg_resources
-#16 125.9 [Thu Nov 13 01:58:05 2025]
-#16 125.9 Finished job 6.
-#16 125.9 5 of 39 steps (13%) done
-#16 125.9 Removing temporary output /app/test_pixi/coassemble/pipe/sample_2_read_raw.otu_table.tsv.
-#16 125.9 Select jobs to execute...
-#16 125.9 
-#16 125.9 [Thu Nov 13 01:58:05 2025]
-#16 125.9 rule get_reads_named_list:
-#16 125.9     output: /app/test_pixi/coassemble/lists/unmapped_reads_1_named_list.tsv, /app/test_pixi/coassemble/lists/unmapped_reads_2_named_list.tsv
-#16 125.9     jobid: 34
-#16 125.9     reason: Missing output files: /app/test_pixi/coassemble/lists/unmapped_reads_1_named_list.tsv, /app/test_pixi/coassemble/lists/unmapped_reads_2_named_list.tsv
-#16 125.9     wildcards: version=unmapped_
-#16 125.9     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=300
-#16 125.9 
-#16 126.5 Building DAG of jobs...
-#16 126.5 Using shell: /usr/bin/bash
-#16 126.5 Provided cores: 1 (use --cores to define parallelism)
-#16 126.5 Rules claiming more threads will be scaled down.
-#16 126.5 Provided resources: mem_mb=8000, mem_mib=7630
-#16 126.5 Select jobs to execute...
-#16 126.5 /app/.pixi/envs/default/lib/python3.10/site-packages/stopit/__init__.py:10: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-#16 126.5   import pkg_resources
-#16 126.9 [Thu Nov 13 01:58:06 2025]
-#16 126.9 Finished job 34.
-#16 126.9 6 of 39 steps (15%) done
-#16 126.9 Select jobs to execute...
-#16 126.9 
-#16 126.9 [Thu Nov 13 01:58:06 2025]
-#16 126.9 rule singlem_pipe_reads:
-#16 126.9     input: /app/bc/test/data/sample_1.1.fq, /app/bc/test/data/sample_1.2.fq
-#16 126.9     output: /app/test_pixi/coassemble/pipe/sample_1_read_raw.otu_table.tsv
-#16 126.9     jobid: 5
-#16 126.9     benchmark: /app/test_pixi/coassemble/benchmarks/pipe/sample_1_read.tsv
-#16 126.9     reason: Missing output files: /app/test_pixi/coassemble/pipe/sample_1_read_raw.otu_table.tsv
-#16 126.9     wildcards: read=sample_1
-#16 126.9     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=1440, log_path=/app/test_pixi/coassemble/logs/pipe/sample_1_read/20251113_015611/attempt1.log
-#16 126.9 
-#16 148.0 [Thu Nov 13 01:58:27 2025]
-#16 148.0 Finished job 5.
-#16 148.0 7 of 39 steps (18%) done
-#16 148.0 Select jobs to execute...
-#16 148.1 
-#16 148.1 [Thu Nov 13 01:58:27 2025]
-#16 148.1 rule rename_pipe_reads:
-#16 148.1     input: /app/test_pixi/coassemble/pipe/sample_1_read_raw.otu_table.tsv
-#16 148.1     output: /app/test_pixi/coassemble/pipe/sample_1_read.otu_table.tsv
-#16 148.1     jobid: 4
-#16 148.1     reason: Missing output files: /app/test_pixi/coassemble/pipe/sample_1_read.otu_table.tsv; Input files updated by another job: /app/test_pixi/coassemble/pipe/sample_1_read_raw.otu_table.tsv
-#16 148.1     wildcards: read=sample_1
-#16 148.1     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=360
-#16 148.1 
-#16 148.6 Building DAG of jobs...
-#16 148.6 Using shell: /usr/bin/bash
-#16 148.6 Provided cores: 1 (use --cores to define parallelism)
-#16 148.6 Rules claiming more threads will be scaled down.
-#16 148.6 Provided resources: mem_mb=8000, mem_mib=7630
-#16 148.6 Select jobs to execute...
-#16 148.6 /app/.pixi/envs/default/lib/python3.10/site-packages/stopit/__init__.py:10: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-#16 148.6   import pkg_resources
-#16 148.7 [Thu Nov 13 01:58:28 2025]
-#16 148.7 Finished job 4.
-#16 148.7 8 of 39 steps (21%) done
-#16 148.7 Removing temporary output /app/test_pixi/coassemble/pipe/sample_1_read_raw.otu_table.tsv.
-#16 148.7 Select jobs to execute...
-#16 148.8 
-#16 148.8 [Thu Nov 13 01:58:28 2025]
-#16 148.8 rule get_reads_list:
-#16 148.8     input: /app/bc/test/data/sample_1.1.fq, /app/bc/test/data/sample_2.1.fq, /app/bc/test/data/sample_3.1.fq, /app/bc/test/data/sample_1.2.fq, /app/bc/test/data/sample_2.2.fq, /app/bc/test/data/sample_3.2.fq
-#16 148.8     output: /app/test_pixi/coassemble/lists/reads_1_list.tsv, /app/test_pixi/coassemble/lists/reads_2_list.tsv
-#16 148.8     jobid: 17
-#16 148.8     reason: Missing output files: /app/test_pixi/coassemble/lists/reads_1_list.tsv, /app/test_pixi/coassemble/lists/reads_2_list.tsv
-#16 148.8     wildcards: version=
-#16 148.8     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=300
-#16 148.8 
-#16 149.2 Building DAG of jobs...
-#16 149.2 Using shell: /usr/bin/bash
-#16 149.2 Provided cores: 1 (use --cores to define parallelism)
-#16 149.2 Rules claiming more threads will be scaled down.
-#16 149.2 Provided resources: mem_mb=8000, mem_mib=7630
-#16 149.2 Select jobs to execute...
-#16 149.2 /app/.pixi/envs/default/lib/python3.10/site-packages/stopit/__init__.py:10: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-#16 149.2   import pkg_resources
-#16 149.4 [Thu Nov 13 01:58:29 2025]
-#16 149.4 Finished job 17.
-#16 149.4 9 of 39 steps (23%) done
-#16 149.4 Select jobs to execute...
-#16 149.4 
-#16 149.4 [Thu Nov 13 01:58:29 2025]
-#16 149.4 rule get_samples_list:
-#16 149.4     output: /app/test_pixi/coassemble/lists/samples_list.tsv
-#16 149.4     jobid: 15
-#16 149.4     reason: Missing output files: /app/test_pixi/coassemble/lists/samples_list.tsv
-#16 149.4     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=300
-#16 149.4 
-#16 150.0 Building DAG of jobs...
-#16 150.0 Using shell: /usr/bin/bash
-#16 150.0 Provided cores: 1 (use --cores to define parallelism)
-#16 150.0 Rules claiming more threads will be scaled down.
-#16 150.0 Provided resources: mem_mb=8000, mem_mib=7630
-#16 150.0 Select jobs to execute...
-#16 150.0 /app/.pixi/envs/default/lib/python3.10/site-packages/stopit/__init__.py:10: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-#16 150.0   import pkg_resources
-#16 150.1 [Thu Nov 13 01:58:29 2025]
-#16 150.1 Finished job 15.
-#16 150.1 10 of 39 steps (26%) done
-#16 150.1 Select jobs to execute...
-#16 150.1 
-#16 150.1 [Thu Nov 13 01:58:29 2025]
-#16 150.1 rule genome_transcripts:
-#16 150.1     input: /app/bc/test/data/GB_GCA_013286235.1.fna
-#16 150.1     output: /app/test_pixi/coassemble/transcripts/GB_GCA_013286235.1_protein.fna
-#16 150.1     jobid: 14
-#16 150.1     benchmark: /app/test_pixi/coassemble/benchmarks/transcripts/GB_GCA_013286235.1_protein.tsv
-#16 150.1     reason: Missing output files: /app/test_pixi/coassemble/transcripts/GB_GCA_013286235.1_protein.fna
-#16 150.1     wildcards: genome=GB_GCA_013286235.1
-#16 150.1     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=60, log_path=/app/test_pixi/coassemble/logs/transcripts/GB_GCA_013286235.1_protein/20251113_015611/attempt1.log
-#16 150.1 
-#16 150.3 [Thu Nov 13 01:58:29 2025]
-#16 150.3 Finished job 14.
-#16 150.3 11 of 39 steps (28%) done
-#16 150.3 Select jobs to execute...
-#16 150.3 
-#16 150.3 [Thu Nov 13 01:58:30 2025]
-#16 150.3 rule singlem_pipe_genomes:
-#16 150.3     input: /app/test_pixi/coassemble/transcripts/GB_GCA_013286235.1_protein.fna
-#16 150.3     output: /app/test_pixi/coassemble/pipe/GB_GCA_013286235.1_bin.otu_table.tsv
-#16 150.3     jobid: 13
-#16 150.3     benchmark: /app/test_pixi/coassemble/benchmarks/pipe/GB_GCA_013286235.1_bin.tsv
-#16 150.3     reason: Missing output files: /app/test_pixi/coassemble/pipe/GB_GCA_013286235.1_bin.otu_table.tsv; Input files updated by another job: /app/test_pixi/coassemble/transcripts/GB_GCA_013286235.1_protein.fna
-#16 150.3     wildcards: genome=GB_GCA_013286235.1
-#16 150.3     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=60, log_path=/app/test_pixi/coassemble/logs/pipe/GB_GCA_013286235.1_bin/20251113_015611/attempt1.log
-#16 150.3 
-#16 162.7 [Thu Nov 13 01:58:42 2025]
-#16 162.7 Finished job 13.
-#16 162.7 12 of 39 steps (31%) done
-#16 162.7 Select jobs to execute...
-#16 162.8 
-#16 162.8 [Thu Nov 13 01:58:42 2025]
-#16 162.8 rule singlem_genomes_list:
-#16 162.8     input: /app/test_pixi/coassemble/pipe/GB_GCA_013286235.1_bin.otu_table.tsv
-#16 162.8     output: /app/test_pixi/coassemble/summarise/bins_otu_table_list.tsv
-#16 162.8     jobid: 12
-#16 162.8     reason: Missing output files: /app/test_pixi/coassemble/summarise/bins_otu_table_list.tsv; Input files updated by another job: /app/test_pixi/coassemble/pipe/GB_GCA_013286235.1_bin.otu_table.tsv
-#16 162.8     wildcards: version=
-#16 162.8     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=300
-#16 162.8 
-#16 163.2 Building DAG of jobs...
-#16 163.2 Using shell: /usr/bin/bash
-#16 163.2 Provided cores: 1 (use --cores to define parallelism)
-#16 163.2 Rules claiming more threads will be scaled down.
-#16 163.2 Provided resources: mem_mb=8000, mem_mib=7630
-#16 163.2 Select jobs to execute...
-#16 163.3 /app/.pixi/envs/default/lib/python3.10/site-packages/stopit/__init__.py:10: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-#16 163.3   import pkg_resources
-#16 163.3 [Thu Nov 13 01:58:43 2025]
-#16 163.3 Finished job 12.
-#16 163.3 13 of 39 steps (33%) done
-#16 163.3 Select jobs to execute...
-#16 163.4 
-#16 163.4 [Thu Nov 13 01:58:43 2025]
-#16 163.4 rule singlem_summarise_genomes:
-#16 163.4     input: /app/test_pixi/coassemble/summarise/bins_otu_table_list.tsv
-#16 163.4     output: /app/test_pixi/coassemble/summarise/bins_summarised.otu_table.tsv
-#16 163.4     jobid: 11
-#16 163.4     benchmark: /app/test_pixi/coassemble/benchmarks/summarise/genomes.tsv
-#16 163.4     reason: Missing output files: /app/test_pixi/coassemble/summarise/bins_summarised.otu_table.tsv; Input files updated by another job: /app/test_pixi/coassemble/summarise/bins_otu_table_list.tsv
-#16 163.4     wildcards: version=
-#16 163.4     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=1440, log_path=/app/test_pixi/coassemble/logs/summarise/genomes/20251113_015611/attempt1.log
-#16 163.4 
-#16 164.8 [Thu Nov 13 01:58:44 2025]
-#16 164.8 Finished job 11.
-#16 164.8 14 of 39 steps (36%) done
-#16 164.8 Select jobs to execute...
-#16 164.8 
-#16 164.8 [Thu Nov 13 01:58:44 2025]
-#16 164.8 rule singlem_appraise:
-#16 164.8     input: /app/test_pixi/coassemble/pipe/sample_1_read.otu_table.tsv, /app/test_pixi/coassemble/pipe/sample_2_read.otu_table.tsv, /app/test_pixi/coassemble/pipe/sample_3_read.otu_table.tsv, /app/test_pixi/coassemble/summarise/bins_summarised.otu_table.tsv
-#16 164.8     output: /app/test_pixi/coassemble/appraise/unbinned_raw.otu_table.tsv, /app/test_pixi/coassemble/appraise/binned_raw.otu_table.tsv
-#16 164.8     jobid: 10
-#16 164.8     benchmark: /app/test_pixi/coassemble/benchmarks/appraise/appraise.tsv
-#16 164.8     reason: Missing output files: /app/test_pixi/coassemble/appraise/unbinned_raw.otu_table.tsv, /app/test_pixi/coassemble/appraise/binned_raw.otu_table.tsv; Input files updated by another job: /app/test_pixi/coassemble/summarise/bins_summarised.otu_table.tsv, /app/test_pixi/coassemble/pipe/sample_3_read.otu_table.tsv, /app/test_pixi/coassemble/pipe/sample_1_read.otu_table.tsv, /app/test_pixi/coassemble/pipe/sample_2_read.otu_table.tsv
-#16 164.8     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=1440, log_path=/app/test_pixi/coassemble/logs/appraise/appraise/20251113_015611/attempt1.log
-#16 164.8 
-#16 167.2 [Thu Nov 13 01:58:46 2025]
-#16 167.2 Finished job 10.
-#16 167.2 15 of 39 steps (38%) done
-#16 167.2 Select jobs to execute...
-#16 167.2 
-#16 167.2 [Thu Nov 13 01:58:46 2025]
-#16 167.2 localrule singlem_appraise_filtered:
-#16 167.2     input: /app/test_pixi/coassemble/appraise/unbinned_raw.otu_table.tsv, /app/test_pixi/coassemble/appraise/binned_raw.otu_table.tsv
-#16 167.2     output: /app/test_pixi/coassemble/appraise/unbinned.otu_table.tsv, /app/test_pixi/coassemble/appraise/binned.otu_table.tsv
-#16 167.2     jobid: 3
-#16 167.2     reason: Missing output files: /app/test_pixi/coassemble/appraise/binned.otu_table.tsv, /app/test_pixi/coassemble/appraise/unbinned.otu_table.tsv; Input files updated by another job: /app/test_pixi/coassemble/appraise/unbinned_raw.otu_table.tsv, /app/test_pixi/coassemble/appraise/binned_raw.otu_table.tsv
-#16 167.2     resources: tmpdir=/tmp
-#16 167.2 
-#16 167.2 [Thu Nov 13 01:58:46 2025]
-#16 167.2 Finished job 3.
-#16 167.2 16 of 39 steps (41%) done
-#16 167.2 Removing temporary output /app/test_pixi/coassemble/appraise/unbinned_raw.otu_table.tsv.
-#16 167.2 Removing temporary output /app/test_pixi/coassemble/appraise/binned_raw.otu_table.tsv.
-#16 167.2 Select jobs to execute...
-#16 167.3 
-#16 167.3 [Thu Nov 13 01:58:46 2025]
-#16 167.3 rule target_elusive:
-#16 167.3     input: /app/test_pixi/coassemble/appraise/unbinned.otu_table.tsv, /app/test_pixi/coassemble/lists/samples_list.tsv
-#16 167.3     output: /app/test_pixi/coassemble/target/elusive_edges.tsv, /app/test_pixi/coassemble/target/targets.tsv
-#16 167.3     jobid: 2
-#16 167.3     benchmark: /app/test_pixi/coassemble/benchmarks/target/target_elusive.tsv
-#16 167.3     reason: Missing output files: /app/test_pixi/coassemble/target/elusive_edges.tsv; Input files updated by another job: /app/test_pixi/coassemble/lists/samples_list.tsv, /app/test_pixi/coassemble/appraise/unbinned.otu_table.tsv
-#16 167.3     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=1440, log_path=/app/test_pixi/coassemble/logs/target/target_elusive/20251113_015611/attempt1.log
-#16 167.3 
-#16 168.1 [Thu Nov 13 01:58:47 2025]
-#16 168.1 Finished job 2.
-#16 168.1 17 of 39 steps (44%) done
-#16 168.1 Select jobs to execute...
-#16 168.2 
-#16 168.2 [Thu Nov 13 01:58:47 2025]
-#16 168.2 rule get_genomes_named_list:
-#16 168.2     output: /app/test_pixi/coassemble/lists/genomes_named_list.tsv
-#16 168.2     jobid: 25
-#16 168.2     reason: Missing output files: /app/test_pixi/coassemble/lists/genomes_named_list.tsv
-#16 168.2     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=300
-#16 168.2 
-#16 168.7 Building DAG of jobs...
-#16 168.7 Using shell: /usr/bin/bash
-#16 168.7 Provided cores: 1 (use --cores to define parallelism)
-#16 168.7 Rules claiming more threads will be scaled down.
-#16 168.7 Provided resources: mem_mb=8000, mem_mib=7630
-#16 168.7 Select jobs to execute...
-#16 168.7 /app/.pixi/envs/default/lib/python3.10/site-packages/stopit/__init__.py:10: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-#16 168.7   import pkg_resources
-#16 168.8 [Thu Nov 13 01:58:48 2025]
-#16 168.8 Finished job 25.
-#16 168.8 18 of 39 steps (46%) done
-#16 168.8 Select jobs to execute...
-#16 168.8 
-#16 168.8 [Thu Nov 13 01:58:48 2025]
-#16 168.8 rule collect_genomes:
-#16 168.8     input: /app/test_pixi/coassemble/appraise/binned.otu_table.tsv, /app/test_pixi/coassemble/appraise/unbinned.otu_table.tsv, /app/test_pixi/coassemble/lists/genomes_named_list.tsv
-#16 168.8     output: /app/test_pixi/coassemble/mapping/sample_1_reference.fna
-#16 168.8     jobid: 24
-#16 168.8     reason: Missing output files: /app/test_pixi/coassemble/mapping/sample_1_reference.fna; Input files updated by another job: /app/test_pixi/coassemble/lists/genomes_named_list.tsv, /app/test_pixi/coassemble/appraise/binned.otu_table.tsv, /app/test_pixi/coassemble/appraise/unbinned.otu_table.tsv
-#16 168.8     wildcards: read=sample_1
-#16 168.8     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=1440
-#16 168.8 
-#16 169.2 Polars using 1 threads
-#16 169.2 [Thu Nov 13 01:58:48 2025]
-#16 169.2 Finished job 24.
-#16 169.2 19 of 39 steps (49%) done
-#16 169.2 Select jobs to execute...
-#16 169.3 
-#16 169.3 [Thu Nov 13 01:58:48 2025]
-#16 169.3 rule map_reads:
-#16 169.3     input: /app/bc/test/data/sample_1.1.fq, /app/bc/test/data/sample_1.2.fq, /app/test_pixi/coassemble/mapping/sample_1_reference.fna
-#16 169.3     output: /app/test_pixi/coassemble/mapping/sample_1_coverm
-#16 169.3     jobid: 23
-#16 169.3     benchmark: /app/test_pixi/coassemble/benchmarks/mapping/sample_1_coverm.tsv
-#16 169.3     reason: Missing output files: /app/test_pixi/coassemble/mapping/sample_1_coverm; Input files updated by another job: /app/test_pixi/coassemble/mapping/sample_1_reference.fna
-#16 169.3     wildcards: read=sample_1
-#16 169.3     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=720, log_path=/app/test_pixi/coassemble/logs/mapping/sample_1_coverm/20251113_015611/attempt1.log
-#16 169.3 
-#16 169.4 [Thu Nov 13 01:58:49 2025]
-#16 169.4 Finished job 23.
-#16 169.4 20 of 39 steps (51%) done
-#16 169.4 Removing temporary output /app/test_pixi/coassemble/mapping/sample_1_reference.fna.
-#16 169.4 Select jobs to execute...
-#16 169.5 
-#16 169.5 [Thu Nov 13 01:58:49 2025]
-#16 169.5 rule filter_bam_files:
-#16 169.5     input: /app/test_pixi/coassemble/mapping/sample_1_coverm
-#16 169.5     output: /app/test_pixi/coassemble/mapping/sample_1_unmapped.bam
-#16 169.5     jobid: 22
-#16 169.5     benchmark: /app/test_pixi/coassemble/benchmarks/mapping/sample_1_filter.tsv
-#16 169.5     reason: Missing output files: /app/test_pixi/coassemble/mapping/sample_1_unmapped.bam; Input files updated by another job: /app/test_pixi/coassemble/mapping/sample_1_coverm
-#16 169.5     wildcards: read=sample_1
-#16 169.5     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=240, log_path=/app/test_pixi/coassemble/logs/mapping/sample_1_filter/20251113_015611/attempt1.log
-#16 169.5 
-#16 169.6 [Thu Nov 13 01:58:49 2025]
-#16 169.6 Finished job 22.
-#16 169.6 21 of 39 steps (54%) done
-#16 169.6 Removing temporary output /app/test_pixi/coassemble/mapping/sample_1_coverm.
-#16 169.6 Select jobs to execute...
-#16 169.7 
-#16 169.7 [Thu Nov 13 01:58:49 2025]
-#16 169.7 rule bam_to_fastq:
-#16 169.7     input: /app/test_pixi/coassemble/mapping/sample_1_unmapped.bam
-#16 169.7     output: /app/test_pixi/coassemble/mapping/sample_1_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_1_unmapped.2.fq.gz
-#16 169.7     jobid: 21
-#16 169.7     reason: Missing output files: /app/test_pixi/coassemble/mapping/sample_1_unmapped.2.fq.gz, /app/test_pixi/coassemble/mapping/sample_1_unmapped.1.fq.gz; Input files updated by another job: /app/test_pixi/coassemble/mapping/sample_1_unmapped.bam
-#16 169.7     wildcards: read=sample_1
-#16 169.7     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=240, log_path=/app/test_pixi/coassemble/logs/mapping/sample_1_fastq/20251113_015611/attempt1.log
-#16 169.7 
-#16 169.8 [Thu Nov 13 01:58:49 2025]
-#16 169.8 Finished job 21.
-#16 169.8 22 of 39 steps (56%) done
-#16 169.8 Removing temporary output /app/test_pixi/coassemble/mapping/sample_1_unmapped.bam.
-#16 169.8 Select jobs to execute...
-#16 169.8 
-#16 169.8 [Thu Nov 13 01:58:49 2025]
-#16 169.8 rule collect_genomes:
-#16 169.8     input: /app/test_pixi/coassemble/appraise/binned.otu_table.tsv, /app/test_pixi/coassemble/appraise/unbinned.otu_table.tsv, /app/test_pixi/coassemble/lists/genomes_named_list.tsv
-#16 169.8     output: /app/test_pixi/coassemble/mapping/sample_2_reference.fna
-#16 169.8     jobid: 29
-#16 169.8     reason: Missing output files: /app/test_pixi/coassemble/mapping/sample_2_reference.fna; Input files updated by another job: /app/test_pixi/coassemble/lists/genomes_named_list.tsv, /app/test_pixi/coassemble/appraise/binned.otu_table.tsv, /app/test_pixi/coassemble/appraise/unbinned.otu_table.tsv
-#16 169.8     wildcards: read=sample_2
-#16 169.8     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=1440
-#16 169.8 
-#16 170.2 Polars using 1 threads
-#16 170.2 Warning: No reference bins found for sample_2
-#16 170.3 [Thu Nov 13 01:58:49 2025]
-#16 170.3 Finished job 29.
-#16 170.3 23 of 39 steps (59%) done
-#16 170.3 Select jobs to execute...
-#16 170.3 
-#16 170.3 [Thu Nov 13 01:58:49 2025]
-#16 170.3 rule map_reads:
-#16 170.3     input: /app/bc/test/data/sample_2.1.fq, /app/bc/test/data/sample_2.2.fq, /app/test_pixi/coassemble/mapping/sample_2_reference.fna
-#16 170.3     output: /app/test_pixi/coassemble/mapping/sample_2_coverm
-#16 170.3     jobid: 28
-#16 170.3     benchmark: /app/test_pixi/coassemble/benchmarks/mapping/sample_2_coverm.tsv
-#16 170.3     reason: Missing output files: /app/test_pixi/coassemble/mapping/sample_2_coverm; Input files updated by another job: /app/test_pixi/coassemble/mapping/sample_2_reference.fna
-#16 170.3     wildcards: read=sample_2
-#16 170.3     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=720, log_path=/app/test_pixi/coassemble/logs/mapping/sample_2_coverm/20251113_015611/attempt1.log
-#16 170.3 
-#16 170.4 [Thu Nov 13 01:58:50 2025]
-#16 170.4 Finished job 28.
-#16 170.4 24 of 39 steps (62%) done
-#16 170.4 Removing temporary output /app/test_pixi/coassemble/mapping/sample_2_reference.fna.
-#16 170.4 Select jobs to execute...
-#16 170.4 
-#16 170.4 [Thu Nov 13 01:58:50 2025]
-#16 170.4 rule filter_bam_files:
-#16 170.4     input: /app/test_pixi/coassemble/mapping/sample_2_coverm
-#16 170.4     output: /app/test_pixi/coassemble/mapping/sample_2_unmapped.bam
-#16 170.4     jobid: 27
-#16 170.4     benchmark: /app/test_pixi/coassemble/benchmarks/mapping/sample_2_filter.tsv
-#16 170.4     reason: Missing output files: /app/test_pixi/coassemble/mapping/sample_2_unmapped.bam; Input files updated by another job: /app/test_pixi/coassemble/mapping/sample_2_coverm
-#16 170.4     wildcards: read=sample_2
-#16 170.4     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=240, log_path=/app/test_pixi/coassemble/logs/mapping/sample_2_filter/20251113_015611/attempt1.log
-#16 170.4 
-#16 170.5 [Thu Nov 13 01:58:50 2025]
-#16 170.5 Finished job 27.
-#16 170.5 25 of 39 steps (64%) done
-#16 170.5 Removing temporary output /app/test_pixi/coassemble/mapping/sample_2_coverm.
-#16 170.5 Select jobs to execute...
-#16 170.5 
-#16 170.5 [Thu Nov 13 01:58:50 2025]
-#16 170.5 rule bam_to_fastq:
-#16 170.5     input: /app/test_pixi/coassemble/mapping/sample_2_unmapped.bam
-#16 170.5     output: /app/test_pixi/coassemble/mapping/sample_2_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_2_unmapped.2.fq.gz
-#16 170.5     jobid: 26
-#16 170.5     reason: Missing output files: /app/test_pixi/coassemble/mapping/sample_2_unmapped.2.fq.gz, /app/test_pixi/coassemble/mapping/sample_2_unmapped.1.fq.gz; Input files updated by another job: /app/test_pixi/coassemble/mapping/sample_2_unmapped.bam
-#16 170.5     wildcards: read=sample_2
-#16 170.5     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=240, log_path=/app/test_pixi/coassemble/logs/mapping/sample_2_fastq/20251113_015611/attempt1.log
-#16 170.5 
-#16 170.6 [Thu Nov 13 01:58:50 2025]
-#16 170.6 Finished job 26.
-#16 170.6 26 of 39 steps (67%) done
-#16 170.6 Removing temporary output /app/test_pixi/coassemble/mapping/sample_2_unmapped.bam.
-#16 170.6 Select jobs to execute...
-#16 170.7 
-#16 170.7 [Thu Nov 13 01:58:50 2025]
-#16 170.7 rule collect_genomes:
-#16 170.7     input: /app/test_pixi/coassemble/appraise/binned.otu_table.tsv, /app/test_pixi/coassemble/appraise/unbinned.otu_table.tsv, /app/test_pixi/coassemble/lists/genomes_named_list.tsv
-#16 170.7     output: /app/test_pixi/coassemble/mapping/sample_3_reference.fna
-#16 170.7     jobid: 33
-#16 170.7     reason: Missing output files: /app/test_pixi/coassemble/mapping/sample_3_reference.fna; Input files updated by another job: /app/test_pixi/coassemble/lists/genomes_named_list.tsv, /app/test_pixi/coassemble/appraise/binned.otu_table.tsv, /app/test_pixi/coassemble/appraise/unbinned.otu_table.tsv
-#16 170.7     wildcards: read=sample_3
-#16 170.7     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=1440
-#16 170.7 
-#16 170.9 Polars using 1 threads
-#16 170.9 Warning: No reference bins found for sample_3
-#16 171.0 [Thu Nov 13 01:58:50 2025]
-#16 171.0 Finished job 33.
-#16 171.0 27 of 39 steps (69%) done
-#16 171.0 Select jobs to execute...
-#16 171.0 
-#16 171.0 [Thu Nov 13 01:58:50 2025]
-#16 171.0 rule map_reads:
-#16 171.0     input: /app/bc/test/data/sample_3.1.fq, /app/bc/test/data/sample_3.2.fq, /app/test_pixi/coassemble/mapping/sample_3_reference.fna
-#16 171.0     output: /app/test_pixi/coassemble/mapping/sample_3_coverm
-#16 171.0     jobid: 32
-#16 171.0     benchmark: /app/test_pixi/coassemble/benchmarks/mapping/sample_3_coverm.tsv
-#16 171.0     reason: Missing output files: /app/test_pixi/coassemble/mapping/sample_3_coverm; Input files updated by another job: /app/test_pixi/coassemble/mapping/sample_3_reference.fna
-#16 171.0     wildcards: read=sample_3
-#16 171.0     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=720, log_path=/app/test_pixi/coassemble/logs/mapping/sample_3_coverm/20251113_015611/attempt1.log
-#16 171.0 
-#16 171.1 [Thu Nov 13 01:58:50 2025]
-#16 171.1 Finished job 32.
-#16 171.1 28 of 39 steps (72%) done
-#16 171.1 Removing temporary output /app/test_pixi/coassemble/mapping/sample_3_reference.fna.
-#16 171.1 Select jobs to execute...
-#16 171.2 
-#16 171.2 [Thu Nov 13 01:58:50 2025]
-#16 171.2 rule filter_bam_files:
-#16 171.2     input: /app/test_pixi/coassemble/mapping/sample_3_coverm
-#16 171.2     output: /app/test_pixi/coassemble/mapping/sample_3_unmapped.bam
-#16 171.2     jobid: 31
-#16 171.2     benchmark: /app/test_pixi/coassemble/benchmarks/mapping/sample_3_filter.tsv
-#16 171.2     reason: Missing output files: /app/test_pixi/coassemble/mapping/sample_3_unmapped.bam; Input files updated by another job: /app/test_pixi/coassemble/mapping/sample_3_coverm
-#16 171.2     wildcards: read=sample_3
-#16 171.2     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=240, log_path=/app/test_pixi/coassemble/logs/mapping/sample_3_filter/20251113_015611/attempt1.log
-#16 171.2 
-#16 171.2 [Thu Nov 13 01:58:50 2025]
-#16 171.2 Finished job 31.
-#16 171.2 29 of 39 steps (74%) done
-#16 171.2 Removing temporary output /app/test_pixi/coassemble/mapping/sample_3_coverm.
-#16 171.2 Select jobs to execute...
-#16 171.3 
-#16 171.3 [Thu Nov 13 01:58:50 2025]
-#16 171.3 rule bam_to_fastq:
-#16 171.3     input: /app/test_pixi/coassemble/mapping/sample_3_unmapped.bam
-#16 171.3     output: /app/test_pixi/coassemble/mapping/sample_3_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_3_unmapped.2.fq.gz
-#16 171.3     jobid: 30
-#16 171.3     reason: Missing output files: /app/test_pixi/coassemble/mapping/sample_3_unmapped.2.fq.gz, /app/test_pixi/coassemble/mapping/sample_3_unmapped.1.fq.gz; Input files updated by another job: /app/test_pixi/coassemble/mapping/sample_3_unmapped.bam
-#16 171.3     wildcards: read=sample_3
-#16 171.3     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=240, log_path=/app/test_pixi/coassemble/logs/mapping/sample_3_fastq/20251113_015611/attempt1.log
-#16 171.3 
-#16 171.4 [Thu Nov 13 01:58:51 2025]
-#16 171.4 Finished job 30.
-#16 171.4 30 of 39 steps (77%) done
-#16 171.4 Removing temporary output /app/test_pixi/coassemble/mapping/sample_3_unmapped.bam.
-#16 171.4 Select jobs to execute...
-#16 171.4 
-#16 171.4 [Thu Nov 13 01:58:51 2025]
-#16 171.4 rule get_reads_list:
-#16 171.4     input: /app/test_pixi/coassemble/mapping/sample_1_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_2_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_3_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_1_unmapped.2.fq.gz, /app/test_pixi/coassemble/mapping/sample_2_unmapped.2.fq.gz, /app/test_pixi/coassemble/mapping/sample_3_unmapped.2.fq.gz
-#16 171.4     output: /app/test_pixi/coassemble/lists/unmapped_reads_1_list.tsv, /app/test_pixi/coassemble/lists/unmapped_reads_2_list.tsv
-#16 171.4     jobid: 37
-#16 171.4     reason: Missing output files: /app/test_pixi/coassemble/lists/unmapped_reads_2_list.tsv, /app/test_pixi/coassemble/lists/unmapped_reads_1_list.tsv; Input files updated by another job: /app/test_pixi/coassemble/mapping/sample_2_unmapped.2.fq.gz, /app/test_pixi/coassemble/mapping/sample_1_unmapped.2.fq.gz, /app/test_pixi/coassemble/mapping/sample_3_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_2_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_3_unmapped.2.fq.gz, /app/test_pixi/coassemble/mapping/sample_1_unmapped.1.fq.gz
-#16 171.4     wildcards: version=unmapped_
-#16 171.4     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=300
-#16 171.4 
-#16 171.9 Building DAG of jobs...
-#16 171.9 Using shell: /usr/bin/bash
-#16 171.9 Provided cores: 1 (use --cores to define parallelism)
-#16 171.9 Rules claiming more threads will be scaled down.
-#16 171.9 Provided resources: mem_mb=8000, mem_mib=7630
-#16 171.9 Select jobs to execute...
-#16 171.9 /app/.pixi/envs/default/lib/python3.10/site-packages/stopit/__init__.py:10: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-#16 171.9   import pkg_resources
-#16 172.0 [Thu Nov 13 01:58:51 2025]
-#16 172.0 Finished job 37.
-#16 172.0 31 of 39 steps (79%) done
-#16 172.0 Select jobs to execute...
-#16 172.1 
-#16 172.1 [Thu Nov 13 01:58:51 2025]
-#16 172.1 rule count_bp_reads:
-#16 172.1     input: /app/test_pixi/coassemble/lists/unmapped_reads_1_list.tsv, /app/test_pixi/coassemble/lists/unmapped_reads_2_list.tsv, /app/test_pixi/coassemble/lists/unmapped_count_samples_list.tsv
-#16 172.1     output: /app/test_pixi/coassemble/unmapped_read_size.csv
-#16 172.1     jobid: 36
-#16 172.1     reason: Missing output files: /app/test_pixi/coassemble/unmapped_read_size.csv; Input files updated by another job: /app/test_pixi/coassemble/lists/unmapped_reads_2_list.tsv, /app/test_pixi/coassemble/lists/unmapped_reads_1_list.tsv, /app/test_pixi/coassemble/lists/unmapped_count_samples_list.tsv
-#16 172.1     wildcards: version=unmapped_
-#16 172.1     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=1440
-#16 172.1 
-#16 172.5 [Thu Nov 13 01:58:52 2025]
-#16 172.5 Finished job 36.
-#16 172.5 32 of 39 steps (82%) done
-#16 172.5 Select jobs to execute...
-#16 172.6 
-#16 172.6 [Thu Nov 13 01:58:52 2025]
-#16 172.6 rule get_count_samples_list:
-#16 172.6     output: /app/test_pixi/coassemble/lists/count_samples_list.tsv
-#16 172.6     jobid: 18
-#16 172.6     reason: Missing output files: /app/test_pixi/coassemble/lists/count_samples_list.tsv
-#16 172.6     wildcards: version=
-#16 172.6     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=300
-#16 172.6 
-#16 173.1 Building DAG of jobs...
-#16 173.1 Using shell: /usr/bin/bash
-#16 173.1 Provided cores: 1 (use --cores to define parallelism)
-#16 173.1 Rules claiming more threads will be scaled down.
-#16 173.1 Provided resources: mem_mb=8000, mem_mib=7630
-#16 173.1 Select jobs to execute...
-#16 173.1 /app/.pixi/envs/default/lib/python3.10/site-packages/stopit/__init__.py:10: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-#16 173.1   import pkg_resources
-#16 173.2 [Thu Nov 13 01:58:52 2025]
-#16 173.2 Finished job 18.
-#16 173.2 33 of 39 steps (85%) done
-#16 173.2 Select jobs to execute...
-#16 173.2 
-#16 173.2 [Thu Nov 13 01:58:52 2025]
-#16 173.2 localrule finish_mapping:
-#16 173.2     input: /app/test_pixi/coassemble/mapping/sample_1_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_2_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_3_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_1_unmapped.2.fq.gz, /app/test_pixi/coassemble/mapping/sample_2_unmapped.2.fq.gz, /app/test_pixi/coassemble/mapping/sample_3_unmapped.2.fq.gz
-#16 173.2     output: /app/test_pixi/coassemble/mapping/done
-#16 173.2     jobid: 20
-#16 173.2     reason: Missing output files: /app/test_pixi/coassemble/mapping/done; Input files updated by another job: /app/test_pixi/coassemble/mapping/sample_2_unmapped.2.fq.gz, /app/test_pixi/coassemble/mapping/sample_1_unmapped.2.fq.gz, /app/test_pixi/coassemble/mapping/sample_3_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_2_unmapped.1.fq.gz, /app/test_pixi/coassemble/mapping/sample_3_unmapped.2.fq.gz, /app/test_pixi/coassemble/mapping/sample_1_unmapped.1.fq.gz
-#16 173.2     resources: tmpdir=/tmp
-#16 173.2 
-#16 173.2 [Thu Nov 13 01:58:52 2025]
-#16 173.2 Finished job 20.
-#16 173.2 34 of 39 steps (87%) done
-#16 173.2 Select jobs to execute...
-#16 173.2 
-#16 173.2 [Thu Nov 13 01:58:52 2025]
-#16 173.2 rule count_bp_reads:
-#16 173.2     input: /app/test_pixi/coassemble/lists/reads_1_list.tsv, /app/test_pixi/coassemble/lists/reads_2_list.tsv, /app/test_pixi/coassemble/lists/count_samples_list.tsv
-#16 173.2     output: /app/test_pixi/coassemble/read_size.csv
-#16 173.2     jobid: 16
-#16 173.2     reason: Missing output files: /app/test_pixi/coassemble/read_size.csv; Input files updated by another job: /app/test_pixi/coassemble/lists/count_samples_list.tsv, /app/test_pixi/coassemble/lists/reads_1_list.tsv, /app/test_pixi/coassemble/lists/reads_2_list.tsv
-#16 173.2     wildcards: version=
-#16 173.2     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=1440
-#16 173.2 
-#16 173.4 [Thu Nov 13 01:58:53 2025]
-#16 173.4 Finished job 16.
-#16 173.4 35 of 39 steps (90%) done
-#16 173.4 Select jobs to execute...
-#16 173.4 
-#16 173.4 [Thu Nov 13 01:58:53 2025]
-#16 173.4 checkpoint cluster_graph:
-#16 173.4     input: /app/test_pixi/coassemble/target/elusive_edges.tsv, /app/test_pixi/coassemble/read_size.csv
-#16 173.4     output: /app/test_pixi/coassemble/target/elusive_clusters.tsv
-#16 173.4     jobid: 1
-#16 173.4     benchmark: /app/test_pixi/coassemble/benchmarks/target/cluster_graph.tsv
-#16 173.4     reason: Missing output files: /app/test_pixi/coassemble/target/elusive_clusters.tsv; Input files updated by another job: /app/test_pixi/coassemble/target/elusive_edges.tsv, /app/test_pixi/coassemble/read_size.csv
-#16 173.4     resources: tmpdir=/tmp, mem_mb=8000, mem_mib=7630, runtime=2880, max_sample_combinations=100, log_path=/app/test_pixi/coassemble/logs/target/cluster_graph/20251113_015611/attempt1.log
-#16 173.4 DAG of jobs will be updated after completion.
-#16 173.4 
-#16 173.7 [Thu Nov 13 01:58:53 2025]
-#16 173.7 Finished job 1.
-#16 173.7 36 of 39 steps (92%) done
-#16 173.7 Select jobs to execute...
-#16 173.7 
-#16 173.7 [Thu Nov 13 01:58:53 2025]
-#16 173.7 localrule aviary_commands:
-#16 173.7     input: /app/test_pixi/coassemble/mapping/done, /app/test_pixi/coassemble/target/elusive_clusters.tsv, /app/test_pixi/coassemble/lists/unmapped_reads_1_named_list.tsv, /app/test_pixi/coassemble/lists/unmapped_reads_2_named_list.tsv
-#16 173.7     output: /app/test_pixi/coassemble/commands/coassemble_commands.sh, /app/test_pixi/coassemble/commands/recover_commands.sh
-#16 173.7     jobid: 19
-#16 173.7     reason: Missing output files: /app/test_pixi/coassemble/commands/coassemble_commands.sh, /app/test_pixi/coassemble/commands/recover_commands.sh
-#16 173.7     resources: tmpdir=/tmp, log_path=/app/test_pixi/coassemble/logs/aviary_commands/20251113_015611/attempt1.log
-#16 173.7 
-#16 173.9 [Thu Nov 13 01:58:53 2025]
-#16 173.9 Finished job 19.
-#16 173.9 37 of 39 steps (95%) done
-#16 173.9 Select jobs to execute...
-#16 173.9 
-#16 173.9 [Thu Nov 13 01:58:53 2025]
-#16 173.9 localrule summary:
-#16 173.9     input: /app/test_pixi/coassemble/target/elusive_clusters.tsv, /app/test_pixi/coassemble/unmapped_read_size.csv
-#16 173.9     output: /app/test_pixi/coassemble/summary.tsv
-#16 173.9     jobid: 35
-#16 173.9     reason: Missing output files: /app/test_pixi/coassemble/summary.tsv
-#16 173.9     resources: tmpdir=/tmp
-#16 173.9 
-#16 174.1 Polars using 1 threads
-#16 174.1 [Thu Nov 13 01:58:53 2025]
-#16 174.1 Finished job 35.
-#16 174.1 38 of 39 steps (97%) done
-#16 174.1 Select jobs to execute...
-#16 174.1 
-#16 174.1 [Thu Nov 13 01:58:53 2025]
-#16 174.1 localrule all:
-#16 174.1     input: /app/test_pixi/coassemble/target/elusive_clusters.tsv, /app/test_pixi/coassemble/commands/coassemble_commands.sh, /app/test_pixi/coassemble/commands/recover_commands.sh, /app/test_pixi/coassemble/summary.tsv
-#16 174.1     jobid: 0
-#16 174.1     reason: Input files updated by another job: /app/test_pixi/coassemble/summary.tsv, /app/test_pixi/coassemble/commands/coassemble_commands.sh, /app/test_pixi/coassemble/commands/recover_commands.sh
-#16 174.1     resources: tmpdir=/tmp
-#16 174.1 
-#16 174.1 [Thu Nov 13 01:58:53 2025]
-#16 174.1 Finished job 0.
-#16 174.1 39 of 39 steps (100%) done
-#16 174.1 Complete log: .snakemake/log/2025-11-13T015610.337730.snakemake.log
-#16 175.4 2025/11/13 01:58:55 AM INFO: ---- Bin Chicken coassemble ----------------------------------------------------
-#16 175.4 2025/11/13 01:58:55 AM INFO: Bin Chicken coassemble complete.
-#16 175.4 2025/11/13 01:58:55 AM INFO: Identified 1 coassemblies, including 1 2-sample.
-#16 175.4 2025/11/13 01:58:55 AM INFO: Cluster summary at /app/test_pixi/coassemble/summary.tsv
-#16 175.4 2025/11/13 01:58:55 AM INFO: More details at /app/test_pixi/coassemble/target/elusive_clusters.tsv
-#16 175.4 2025/11/13 01:58:55 AM INFO: Aviary commands for coassembly and recovery in shell scripts at /app/test_pixi/coassemble/commands
-#16 DONE 176.4s
-
-#17 [13/13] RUN cat test_pixi/coassemble/target/elusive_clusters.tsv
-#17 0.847 samples	length	total_targets	total_size	recover_samples	coassembly
-#17 0.847 sample_1,sample_2	2	3	8758	sample_1,sample_2,sample_3	coassembly_0
-#17 DONE 0.9s
-
-#18 exporting to image
-#18 exporting layers
-#18 exporting layers 575.7s done
-#18 writing image sha256:2666c564ed1fa1471449748aa4af29cb005614db4fce65ac049b7b6c509deee0 0.0s done
-#18 DONE 575.8s
+#16 exporting to image
+#16 exporting layers
+#16 exporting layers 1628.0s done
+#16 exporting manifest sha256:fef1b6f5448bd1fa397b2a9afc156b5d9385f3f89a8909b7600e94d4cdb10cdc 0.0s done
+#16 exporting config sha256:b3a9b1f7ae0f3704c765bd13d22028786ad4cdc2c76c9a40d30d998b83a78e01 0.0s done
+#16 exporting attestation manifest sha256:752199fb35c7ef8bbd4e78a0a33ac214201ee6da83caed16faf924adb67b8e70 0.0s done
+#16 exporting manifest list sha256:9ca39dcc68c5f35f2258e88d4c0d2a47be6b4974a982a050b2c5c55a8343634f
+#16 exporting manifest list sha256:9ca39dcc68c5f35f2258e88d4c0d2a47be6b4974a982a050b2c5c55a8343634f 0.0s done
+#16 naming to moby-dangling@sha256:9ca39dcc68c5f35f2258e88d4c0d2a47be6b4974a982a050b2c5c55a8343634f 0.0s done
+#16 unpacking to moby-dangling@sha256:9ca39dcc68c5f35f2258e88d4c0d2a47be6b4974a982a050b2c5c55a8343634f
+#16 unpacking to moby-dangling@sha256:9ca39dcc68c5f35f2258e88d4c0d2a47be6b4974a982a050b2c5c55a8343634f 621.5s done
+#16 DONE 2249.7s
